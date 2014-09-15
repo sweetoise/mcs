@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><%= content_for?(:title) ? yield(:title) : "MCS - Administrator::Homepage" %></title>
+		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
+		<%= stylesheet_link_tag "administrator", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<%= yield(:head) %>
+	</head>
+	<body>
+
+		<div class="admin_pagecontent">
+			<table border="0">
+				<tr>
+					<td>
+					<header class="header_navbar">
+						<div class="left_header_container">
+							<table>
+								<tr>
+									<td>
+									<div class="header_logo">
+										<%= link_to(image_tag("../assets/user_mainpage_header_logo.jpg"), root_path )%>
+									</div></td>
+									<td>
+									<div class="admin_home_link">
+										<%= link_to 'Home', root_path %>
+									</div></td>
+									<td>
+										<div class="admin_home_link">
+											<% if current_user.has_role? :superadmin %>
+                                                <%= link_to('Manage Users', users_path) %>
+                                            <% else %>
+                                            <% end %>
+										</div>
+									</td>
+									
+								</tr>
+							</table>
+
+						</div>
+						
+       	<tr>
+       		<td>
+       			<footer id="footer">
+							<div class="mainpage_footer_leftsider">
+								<div class="footer_sitelogo">
+									<%= link_to(image_tag("../assets/mainpage_footer_sitelogo.jpg"), root_path )%>
+								</div>
+								<div class="mainpage_copywrite_container">
+									Copyright © 2013 - 2014 MyCourseStudy<br />Your up-to-date Higher Institution Courses Archive.
+								</div>
+							
+							</div>
+							<div class="mainpage_footer_rightsider">
+							  <div class="mainpage_footer_rightsider_top_navigation">
+							    <table class="mainpage_nav_table_footer_rightsider_top_navigation" border="0">
+								  <tr>
+									<td class="mainpage_advertise"><%= link_to 'ADVERTISE', '#' %></td>
+									<td class="mainpage_get_help"><%= link_to 'GET HELP', '/get_help/index' %></td>
+									<td class="mainpage_feedback"><%= link_to 'SEND US FEEDBACK', '#' %></td>
+									<td class="mainpage_about"><%= link_to 'ABOUT US', '#' %></td>
+								  </tr>
+							    </table>
+					          </div>  
+					          <div class="mainpage_footer_rightsider_bottom_navigation">
+							    <table class="mainpage_nav_table_footer_leftsider_bottom_navigation" border="0">
+								  <tr>
+									<td class="mainpage_copywrite_info"><%= link_to 'Copywrite Information', '/copywrite_information/index' %></td>
+									<td class="mainpage_privacy_policy"><%= link_to 'Privacy Policy', '/privacy_policy/index' %></td>
+									<td class="mainpage_terms_of_use"><%= link_to 'Terms Of Use', '/terms_and_conditions/index' %></td>
+								  </tr>
+							    </table>
+					          </div>        
+							</div>						
+						</footer>
+       		</td>
+       	</tr>
+       </table>
+
+		</div>
+	</body>
+</html>

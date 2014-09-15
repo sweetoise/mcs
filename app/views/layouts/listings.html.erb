@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><%= content_for?(:title) ? yield(:title) : "MCS :: Home" %></title>
+		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<%= yield(:head) %>
+		
+	</head>
+	<body>
+		<div class="listings-layout-pagecontent">
+			<header class="header_navbar">
+					<table border="0">
+						<tr>
+							<td>
+								<div class="sitelogo">
+						           <%= link_to(image_tag("../assets/sitelogo.jpg"), root_path )%>
+					            </div>
+							</td>
+							<td>
+								<div class="header_navigation">
+							      <table class="nav_table" border="0">
+								    <tr>
+									<td class="home"><%= link_to 'Home', root_path %></td>
+									<td class="updates"><%= link_to 'Updates', '/recent_updates/index' %></td>
+									<td class="faq"><%= link_to 'Get Help', '/get_help/index' %></td>
+									<td class="contact"><%= link_to 'Contact Us', '/contact_us/index' %></td>								
+								    </tr>
+							      </table>
+					            </div>
+							</td>
+							<td>
+						     <table class="header_loginform", border="0">
+						         <%= simple_form_for(:user, html: { autocomplete: 'off' }, :url => session_path(:user)) do |f| %>
+						           <tr class="login_inputs">
+						           	<td>
+						           		<table>
+						           			<tr>
+						           			  <td class="email_container"><%= f.input :email, :autofocus => true, label: false, input_html: { class: 'email_input' } %></td>
+							                  <td class="password_container"> 
+								                <div class="password_container">
+								                  <%= f.input :password, label: false, input_html: { class: 'password_input'} %>
+								                  <%= f.submit '', :class => 'login_button' %>
+								                </div>
+							                  </td>
+						           			</tr>
+						           		</table>
+							          </td>
+						           </tr>
+						           <tr>
+								        <td>
+								        	<table border="0">
+								        		<tr>
+								        			<td>
+								        				<div class="remember_me_checkbox">
+									                      <%= f.check_box :remember_me %>
+									                    </div>
+								        			</td>
+								        			<td>
+									                    <div class="remember_me">Remember Me</div>
+								                    </td>
+							                        <td class="lost_password">
+								                         <div class="lost_password">
+									                        <%= link_to "Forgot your Username or Password?", new_password_path(:user), :class => 'lost_password' %>
+								                         </div>
+							                        </td>
+								        		</tr>
+								        	</table>	
+								        </td>								      
+						              </tr>
+						            <% end %>			             
+				              </table>
+							</td>
+						</tr>
+					</table>						
+			</header>
+			<div id="main" role="main">
+				<div class="container">
+					<div class="content">
+						<div class="row">
+							<div class="span">
+								<%= yield %>
+							</div>
+						</div>
+						<footer class="footer">
+							<div class="footer_leftsider">
+								<div class="footer_sitelogo">
+									<%= link_to(image_tag("../assets/footer_sitelogo.jpg"), root_path )%>
+								</div>
+								<div class="copywrite_container">
+									Copyright © 2013 - 2014 MyCourseStudy - Your higher institution courses reading archive. Get the latest institution course outline, for your reading pleasure.
+								</div>
+								<div class="footer_leftsider_bottom_navigation">
+							    <table class="nav_table_footer_leftsider_bottom_navigation" border="0">
+								  <tr>
+									<td class="copywrite_info"><%= link_to 'Copywrite Information', '/copywrite_information/index' %></td>
+									<td class="privacy_policy"><%= link_to 'Privacy Policy', '/privacy_policy/index' %></td>
+									<td class="terms_of_use"><%= link_to 'Terms Of Use', '/terms_and_conditions/index' %></td>
+								  </tr>
+							    </table>
+					          </div>
+							</div>
+							<div class="footer_rightsider">
+							  <div class="footer_rightsider_top_navigation">
+							    <table class="nav_table_footer_rightsider_top_navigation" border="0">
+								  <tr>
+									<td class="advertise"><%= link_to 'ADVERTISE', '#' %></td>
+									<td>|</td>
+									<td class="get_help"><%= link_to 'GET HELP', '/get_help/index' %></td>
+									<td>|</td>
+									<td class="feedback"><%= link_to 'SEND US FEEDBACK', '#' %></td>
+									<td>|</td>
+									<td class="about"><%= link_to 'ABOUT US', '#' %></td>
+								  </tr>
+							    </table>
+					          </div>          
+							</div>						
+						</footer>
+					</div>
+				</div>
+				<!--! end of .container -->
+			</div>
+			<!--! end of #main -->
+		</div>
+	</body>
+</html>

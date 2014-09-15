@@ -1,5 +1,8 @@
 Mcs::Application.routes.draw do
 
+  resources :updates
+
+
   get "login/index"
   get "mainpage/index"
   get "administrator/index"

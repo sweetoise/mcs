@@ -1,3 +1,579 @@
-// Place all the styles related to the administrator controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-image: url('../assets/admin_background.jpg');
+}
+.admin_pagecontent {
+  width: 1150px;
+  min-height: 1400px;
+  margin-top: -8px;
+  margin-bottom: -8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pagecontainer {
+  margin-top: -11px;
+  border-left: 2px solid #3e3e3e;
+  padding: 7px;
+  padding-bottom: 0px;
+  padding-left: 2px;
+  border-top: 1px solid #3e3e3e;
+  border-right: 2px solid #3e3e3e;
+  min-height: 1400px;
+}
+footer {
+  width: 1150px;
+  height: 75px;
+  bottom: 0;
+}
+.header_navbar {
+  margin-top: -7px;
+  margin-left: -4px;
+  width: 1115px;
+  padding-left: 20px;
+  padding-right: 15px;
+  background-repeat: none;
+  height: 40px;
+}
+.left_header_container {
+  min-width: 850px;
+  margin-top: -5px;
+  float: left;
+}
+.right_header_container {
+  padding-top: 5px;
+  height: 30px;
+  margin-left: 860px;
+  width: 270px;
+  margin-top: 9px;
+  color: white;
+  font-family: verdana, arial;
+  font-size: 11px;
+}
+.profile {
+  height: 15px;
+  text-align: center;
+  width: 80px;
+}
+.profile a {
+  color: #EE811E;
+}
+.user_photo {
+  font-size: 1px;
+  color: #ccc;
+  background-image: url('../assets/user-photo/no-photo.jpg');
+  margin-top: -4px;
+  width: 30px;
+  height: 23px;
+  border: 1px solid #ee811e;
+}
+.current_user {
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-left: 3px;
+  width: 55px;
+  height: 15px;
+  color: #EE811E;
+}
+
+
+.logout {
+  height: 15px;
+  text-align: center;
+  width: 55px;
+}
+.logout a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #F9F9F9;
+}
+.header_logo {
+  margin-left: -9px;
+  margin-top: -3px;
+  width: 155px;
+  height: 39px;
+  float: left;
+}
+.welcome_admin {
+  color: white;
+  font-size: 12px;
+  font-family: arial;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 130px;
+  margin-top: 5px;
+}
+.welcome_basic_admin {
+  color: white;
+  font-size: 12px;
+  font-family: arial;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 200px;
+  margin-top: 5px;
+}
+.manage_msg {
+  color: white;
+  font-size:11px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.admin_home_link {
+  margin-top: 3px;
+  font-weight: bold;
+  font-family: dokchampa, arial, verdana;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-left: 30px;
+}
+.admin_home_link a {
+  color: #ee811e;
+  text-decoration: none;
+}
+.admin_home_link a:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+.admin_leftpane {
+  min-height: 1407px;
+  margin-top: -10px;
+  margin-bottom: -4px;
+  width: 240px;
+  border-right: 2px solid #a2a2a2;
+}
+.yield_content {
+  background-image: url('../assets/yield_row_background.jpg');
+  margin-top: -7px;
+  min-height: 1386px;
+  margin-left: 6px;
+  min-width: 877px;
+  width: 400px;
+  border: 1px solid #c7c7c7;
+}
+.navigation_title {
+  margin-top: 5px;
+  padding-left: 15px;
+  width: 213px;
+  color: #4e4e4e;
+  border-bottom: 1px solid #a7a7a7;
+  padding-bottom: 3px;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-family: dokchampa, arial, verdana;
+}
+.navigation_section {
+  width: 187px;
+  color: #FFC062;
+  font-weight: bold;
+  padding-left: 40px;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding-top: 5px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #333333;
+}
+.nav_items_links_center {
+  width: 220px;
+  height: 15px;
+  color: #4e4e4e;
+  font-size: 11px;
+  text-align: left;
+  margin-left: 18px;
+  margin-top: -2px;
+  padding-top: 3px;
+  font-family: verdana;
+}
+.nav_items_links_center a{
+  color: #5e5e5e;
+  text-decoration: none;
+}
+.nav_items_links_center a:hover {
+  color: black;
+  text-decoration: underline;
+}
+.nav_items_links {
+  width: 220px;
+  height: 15px;
+  color: #4e4e4e;
+  font-size: 11px;
+  margin-top: -2px;
+  padding-top: 3px;
+  font-family: verdana;
+  margin-left: 40px;
+}
+.nav_items_links a {
+  color: #5e5e5e;
+  text-decoration: none;
+}
+.nav_items_links a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+//INDEX.HTML.ERB
+
+.admin_header_title {
+  color: #b74900;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 40px;
+  font-family: verdana;
+  font-weight: bold;
+  text-align: center;
+  min-width: 900px;
+}
+.admin_content_display {
+  padding-top: 20px;
+  padding-left: 10px;
+  font-family: verdana;
+  min-width: 840px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 150px;
+  margin-top: 20px;
+  background-image: url('../images/mainpage_layout_background.jpg');
+}
+.resource_container {
+  font-size: 11px;
+  margin-left: 5px;
+  color: #b74900;
+  min-height: 50px;
+  width: 200px;
+}
+.resource_container_title {
+  color: #5e5e5e;
+  font-size: 11px;
+}
+.resource_container_faculty_title {
+  margin-top: -1px;
+  color: #5e5e5e;
+  font-size: 11px;
+}
+.resource_container_faculty_title a{
+  color: #5e5e5e;
+}
+.resource_container_title a {
+  color: #5e5e5e;
+}
+.resource_container_department_title {
+  color: #5e5e5e;
+  font-size: 11px;
+}
+.resource_container_department_title a{
+  color: #5e5e5e;
+}
+.voucher_count_title {
+  font-size: 11px;
+  margin-top: 13px;
+  color: #5e5e5e;
+}
+.voucher_count_title a{
+  color: #5e5e5e;
+  font-size: 11px;
+}
+.total_count {
+  font-size: 11px;
+  margin-left: 5px;
+  color: black;
+}
+.home_admin_all {
+  margin-top: 30px;
+  width: 835px;
+  margin-left: 20px;
+  height: 300px;
+  color: #3e3e3e;
+  font-size: 12px;
+  text-align: center;
+  text-transform :uppercase;
+  font-weight: bold;
+}
+
+//INSTITUTIONS.HTML.ERB
+
+.institution_pagecontent {
+  width: 810px;
+  height: 900px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+.showing_all_contents_title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  color: #b74900;
+  font-family: verdana;
+  margin-top: 10px;
+}
+.content_table {
+  padding-left:  40px;
+  padding-top: 80px;
+  margin-top: 10px;
+  border-top: 1px solid #a7a7a7;
+}
+
+.content_title {
+  font-size: 13px;
+  font-family: verdana;
+  color: black;
+}
+.content_links {
+  margin-top: 15px;
+  font-size: 12px;
+  font-family: dokchampa;
+  margin-left: 60px;
+}
+.content_links a {
+  color: #336699;
+}
+.content_link {
+  margin-top: 15px;
+  font-size: 12px;
+  font-family: dokchampa;
+  margin-left: 8px;
+}
+.content_link a {
+  color: #336699;
+}
+.institution_name_list {
+  margin-top: 15px;
+  font-size: 13px;
+  margin-left: 5px;
+  text-align: center;
+  color: #5e5e5e;
+  font-weight: bold;
+  font-family: verdana;
+}
+.new_content-title {
+  font-size: 13px;
+  font-family: dokchampa;
+  margin-left: 166px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.new_content-title a{
+  color: #b74900;
+}
+
+//FOOTER.ADMINISTRATOR.HTML.ERB
+
+//* footer */
+
+
+
+
+#footer {
+  color: white;
+  margin-left: -3px;
+  margin-bottom: -3px;
+  margin-top: -4px;
+  height: 85px;
+  width: 1150px;
+  background-image: url('../assets/mainpage_footer_background.jpg');
+  border-top: 2px solid #3e3e3e;
+}
+
+
+#footer ul {
+  margin-top: -15px;
+  list-style: none;
+}
+#footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+.footer_leftsider {
+  width: 400px;
+  height: 90px;
+  float: left;
+}
+.mainpage_footer_leftsider {
+  width: 300px;
+  margin-top: 10px;
+  height: 60px;
+  float: left;
+  margin-left: 10px;
+}
+.footer_rightsider {
+  width: 500px;
+  height: 90px;
+  float: right;
+}
+.mainpage_footer_rightsider {
+  width: 350px;
+  height: 55px;
+  float: right;
+  margin-right: 20px;
+}
+.footer_rightsider a {
+  padding-top: -10px;
+}
+.footer_sitelogo {
+  margin-top: 4px;
+  margin-left: 1px;
+  width: 105px;
+  height: 33px;
+}
+.copywrite_container {
+  margin-top: 10px;
+  width: 380px;
+  height: 35px;
+  font-size: 10px;
+  font-family: arial;
+}
+.mainpage_copywrite_container {
+  margin-top: -4px;
+  width: 380px;
+  height: 28px;
+  font-size: 10px;
+  font-family: arial;
+}
+.footer_rightsider_top_navigation {
+  font-family: dokchampa, arial, verdana;
+  font-size: 12px;
+  padding-top: 5px;
+  width: 440px;
+  height: 40px;
+  padding-left: 110px;
+}
+.mainpage_footer_rightsider_top_navigation {
+  font-family: dokchampa, arial, verdana;
+  font-size: 9px;
+  font-weight: bold;
+  padding-top: 6px;
+  margin-top: 5px;
+  width: 350px;
+  height: 25px;
+}
+.mainpage_nav_table_footer_rightsider_top_navigation a{
+  color: #F0F0F0;
+  text-decoration: none;
+}
+.mainpage_nav_table_footer_rightsider_top_navigation a:hover{
+  color: #EE811E;
+  text-decoration: underline;
+}
+.mainpage_advertise {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.mainpage_get_help {
+  padding-right: 7px;
+  padding-left: 7px;
+}
+.mainpage_feedback {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.mainpage_about {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.footer_leftsider_bottom_navigation {
+  margin-top: -10px;
+  margin-left: -4px;
+  width: 350px;
+  font-size: 11px;
+  font-family: dokchampa, arial, verdana;
+  height: 30px;
+  font-weight: bold;
+}
+.mainpage_footer_rightsider_bottom_navigation {
+  margin-left: 20px;
+  margin-top: -5px;
+  width: 310px;
+  font-size: 9px;
+  font-family: dokchampa, arial, verdana;
+  height: 15px;
+  font-weight: bold;
+}
+.nav_table_footer_rightsider_top_navigation a{
+  color: white;
+  text-decoration: none;
+}
+.nav_table_footer_rightsider_top_navigation a:hover{
+  color: #EE811E;
+  text-decoration: underline;
+}
+.nav_table_footer_leftsider_bottom_navigation a{
+  color: white;
+  text-decoration: underline;
+}
+.nav_table_footer_leftsider_bottom_navigation a:hover{
+  color: #EE811E; 
+  text-decoration: underline;
+}
+.mainpage_nav_table_footer_leftsider_bottom_navigation a{
+  color: #EEC7A9;
+  text-decoration: underline;
+}
+.mainpage_nav_table_footer_leftsider_bottom_navigation a:hover{
+  color: #EE811E; 
+  text-decoration: underline;
+}
+.advertise {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.get_help {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.feedback {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.about {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.copywrite_info {
+  padding-right: 5px;
+}
+.mainpage_copywrite_info {
+  padding-right: 10px;
+}
+
+.privacy_policy {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.mainpage_privacy_policy {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.terms_of_use {
+  padding-left: 5px;
+}
+.mainpage_terms_of_use {
+  padding-left: 10px;
+}
+.institutions_lists {
+  height: 100px;
+  width: 100px;
+  border: 1px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

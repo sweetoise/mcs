@@ -2,16 +2,17 @@ class ListingsController < Devise::RegistrationsController
   before_filter :authenticate_user!
   before_filter :deny_superadmin, :only => [:edit]
   before_filter :check_user_role, :only => [:edit]
-  
-  
   def index
+    @updates = Update.all
   end
 
   def new
+    @updates = Update.all
     super
   end
 
   def create
+    @updates = Update.all
     super
   end
 
@@ -22,7 +23,7 @@ class ListingsController < Devise::RegistrationsController
   def update
     super
   end
-  
+
   def destroy
     super
   end
@@ -42,7 +43,7 @@ class ListingsController < Devise::RegistrationsController
       render :layout => "administrator"
     end
   end
-  
+
   def deny_superadmin
     if current_user.has_role? :superadmin
       render :layout => 'administrator'
