@@ -40,7 +40,61 @@
 							</table>
 
 						</div>
-						
+						<div class="right_header_container">
+							<table border="0">
+								<tr>
+									<td>
+									<div class="user_photo">
+									</div></td>
+
+									<% if current_user.name.length > 5 %>
+									<td>
+									<div class="current_user">
+										<%= truncate current_user.name, length: 8 %>
+									</div></td>
+									<% else %>
+									<td>
+									<div class="current_user">
+										<%= current_user.name%>
+									</div></td>
+									<% end %>
+									<td>
+									<div class="profile">
+										<%= link_to('Edit Profile', edit_user_registration_path ) %>
+									</div></td>
+									<td>
+									<div class="logout">
+										<%= link_to('Logout !', destroy_user_session_path, :method=>'delete') %>
+									</div></td>
+								</tr>
+							</table>
+						</div>
+					</header></td>
+				</tr>
+				<tr></tr>
+			</table>
+			<div class="pagecontainer">
+				<table>
+					<tr>
+						<td>
+						  <div class="admin_leftpane">
+							<table>
+								
+							</table>
+						  </div>
+						</td>
+						<td>
+						  <div class="yield_content">
+							 <%= yield %>
+						  </div>
+						</td>
+					</tr>
+				</table>
+
+				<!--! end of .container -->
+			</div>
+			<!--! end of #main -->
+			<table>
        	<tr>
        		<td>
        			<footer id="footer">
