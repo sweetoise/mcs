@@ -139,6 +139,112 @@
 								</tr>
 								<% else %>
 								<% end %>
+								<% if current_user.has_role? :past_questions_admin or current_user.has_role? :class_note_admin or current_user.has_role? :library_admin or current_user.has_role? :admin_user or current_user.has_role? :superadmin %>
+								<tr>
+									<td>
+										<div class="navigation_section">Courses Section</div>
+									</td>
+								</tr>
+								<% if current_user.has_role? :superadmin or current_user.has_role? :admin_user %>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'First semester courses', administrator_first_semester_courses_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'First semester course topics', administrator_first_semester_course_outlines_path %>
+										</div>
+									</td>
+								</tr>
+								
+								<% if current_user.has_role? :superadmin or current_user.has_role? :admin_user %>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Second semester courses', administrator_second_semester_courses_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Second semester course topics', administrator_second_semester_course_outlines_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<% if Semester.all.blank? or CourseType.all.blank? %>
+								<% if current_user.has_role? :superadmin %>
+								<tr>
+									<td>
+										<div class="navigation_section">Other Course - Inputs</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Course Types', administrator_course_types_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Semesters', administrator_semesters_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<% else %>
+								<% end %>
+								<% if current_user.has_role? :past_questions_admin or current_user.has_role? :class_note_admin or current_user.has_role? :library_admin or current_user.has_role? :admin_user or current_user.has_role? :superadmin  %>
+								<tr>
+									<td>
+										<div class="navigation_section">Library Section</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'First semester library books', administrator_first_semester_library_books_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'First semester library book topics', administrator_first_semester_library_book_outlines_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Second semester library books', administrator_second_semester_library_books_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Second semester library book topics', administrator_second_semester_library_book_outlines_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								
+								
 							</table>
 						  </div>
 						</td>

@@ -1,0 +1,2 @@
+module FirstSemesterLibraryBookOutlinesHelper
+end

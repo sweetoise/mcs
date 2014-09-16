@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  code: MyString
+  credit_load: 1
+  description: MyText
+  title: MyString
+  course_type_id: 1
+  level_id: 1
+  semester_id: MyString
+  content: MyText
+
+two:
+  code: MyString
+  credit_load: 1
+  description: MyText
+  title: MyString
+  course_type_id: 1
+  level_id: 1
+  semester_id: MyString
+  content: MyText

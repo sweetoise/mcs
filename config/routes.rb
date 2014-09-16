@@ -1,5 +1,6 @@
 Mcs::Application.routes.draw do
 
+
   resources :updates
 
 
@@ -18,8 +19,12 @@ Mcs::Application.routes.draw do
     resources :pins
     resources :first_semester_courses
     resources :first_semester_course_outlines
+    resources :first_semester_library_books
+    resources :first_semester_library_book_outlines
     resources :second_semester_courses
     resources :second_semester_course_outlines
+    resources :second_semester_library_books
+    resources :second_semester_library_book_outlines
     resources :course_types
     resources :semesters
     

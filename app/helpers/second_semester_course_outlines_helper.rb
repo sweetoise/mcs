@@ -1,0 +1,2 @@
+module SecondSemesterCourseOutlinesHelper
+end

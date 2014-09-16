@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140916001719) do
+ActiveRecord::Schema.define(:version => 20140916013755) do
+
+  create_table "course_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "departments", :force => true do |t|
     t.string   "name"
@@ -26,6 +32,52 @@ ActiveRecord::Schema.define(:version => 20140916001719) do
     t.integer  "institution_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "first_semester_course_outlines", :force => true do |t|
+    t.string   "topic"
+    t.string   "book_url"
+    t.string   "video_url"
+    t.text     "content"
+    t.integer  "first_semester_course_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "first_semester_courses", :force => true do |t|
+    t.string   "code"
+    t.integer  "credit_load"
+    t.text     "description"
+    t.string   "title"
+    t.integer  "course_type_id"
+    t.integer  "level_id"
+    t.string   "semester_id"
+    t.text     "content"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "first_semester_library_book_outlines", :force => true do |t|
+    t.string   "topic"
+    t.text     "content"
+    t.string   "book_url"
+    t.integer  "first_semester_library_book_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "first_semester_library_books", :force => true do |t|
+    t.string   "name"
+    t.integer  "first_semester_course_id"
+    t.text     "description"
+    t.integer  "book_pages"
+    t.text     "author"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "institutions", :force => true do |t|
@@ -60,6 +112,58 @@ ActiveRecord::Schema.define(:version => 20140916001719) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "second_semester_course_outlines", :force => true do |t|
+    t.string   "topic"
+    t.text     "content"
+    t.string   "book_url"
+    t.string   "video_url"
+    t.integer  "second_semester_course_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "second_semester_courses", :force => true do |t|
+    t.string   "code"
+    t.integer  "course_type_id"
+    t.integer  "credit_load"
+    t.integer  "level_id"
+    t.integer  "semester_id"
+    t.string   "title"
+    t.text     "content"
+    t.text     "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "second_semester_library_book_outlines", :force => true do |t|
+    t.string   "topic"
+    t.text     "content"
+    t.string   "book_url"
+    t.integer  "second_semester_library_book_id"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "second_semester_library_books", :force => true do |t|
+    t.text     "author"
+    t.string   "name"
+    t.integer  "second_semester_course_id"
+    t.text     "description"
+    t.integer  "book_pages"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "semesters", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "updates", :force => true do |t|
     t.text     "description"
