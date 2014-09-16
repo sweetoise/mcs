@@ -11,8 +11,8 @@ class FirstSemesterLibraryBook < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "80x100>", :small => "40x50>" }, :default_url => ""
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  #has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "80x100>", :small => "40x50>" }, :default_url => ""
+  #validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :first_semester_course
   belongs_to :level
