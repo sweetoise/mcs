@@ -1,0 +1,19 @@
+<%= simple_form_for([:administrator, @department_update]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :signed_by %>
+    <%= f.input :date %>
+  </div>
+   <div class="field">
+	<%= f.label :department_id %>
+	 <br />
+	<%= f.collection_select :department_id, Department.order(:name), :id, :name, include_blank: true, :prompt => "- Select Department -" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

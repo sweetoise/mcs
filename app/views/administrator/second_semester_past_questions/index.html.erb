@@ -1,0 +1,27 @@
+<h1>Listing second_semester_past_questions</h1>
+
+<table>
+  <tr>
+    <th>Second semester course</th>
+    <th>Year</th>
+    <th>Solution url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @second_semester_past_questions.each do |second_semester_past_question| %>
+  <tr>
+    <td><%= second_semester_past_question.second_semester_course.code %></td>
+    <td><%= second_semester_past_question.year %></td>
+    <td><%= second_semester_past_question.solution_url %></td>
+    <td><%= link_to 'Show', [:administrator, second_semester_past_question] %></td>
+    <td><%= link_to 'Edit', edit_administrator_second_semester_past_question_path(second_semester_past_question) %></td>
+    <td><%= link_to 'Destroy', [:administrator, second_semester_past_question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Second semester past question', new_administrator_second_semester_past_question_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @department_update.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @department_update.content %>
+</p>
+
+<p>
+  <b>Signed by:</b>
+  <%= @department_update.signed_by %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @department_update.date %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @department_update.department_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_department_update_path(@department_update) %> |
+<%= link_to 'Back', administrator_department_updates_path %>

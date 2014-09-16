@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140915205203) do
+ActiveRecord::Schema.define(:version => 20140916001719) do
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.integer  "institution_id"
+    t.integer  "faculty_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "faculties", :force => true do |t|
+    t.string   "name"
+    t.integer  "institution_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "institutions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "levels", :force => true do |t|
+    t.integer  "level"
+    t.integer  "institution_id"
+    t.integer  "faculty_id"
+    t.integer  "department_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "pins", :force => true do |t|
+    t.string   "number"
+    t.string   "serial"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -45,6 +82,10 @@ ActiveRecord::Schema.define(:version => 20140915205203) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,2 +1,120 @@
-<h1>Administrator#index</h1>
-<p>Find me in app/views/administrator/index.html.erb</p>
+<div class="admin_yield_page">
+	<div class="admin_header_title">
+		        <% if current_user.has_role? :superadmin %>Welcome Super Administrator
+		        <% elsif current_user.has_role?  :admin_user %>Welcome Administrator User
+		        <% elsif current_user.has_role? :class_note_admin %> Courses,Books and Solutions Administrator
+		        <% elsif current_user.has_role? :library_admin %> Courses, Books and Solutions Administrator
+		        <% elsif current_user.has_role? :past_questions_admin %> Courses,Books and Solutions Administrator
+		        <% elsif current_user.has_role? :voucher_admin %> Voucher Pin Manager
+		        <% elsif current_user.has_role? :ads_updates_admin %>Adverts and Updates Administrator
+		        <% end %>
+	</div>
+	<div class="admin_content_display">
+		<table>
+			<tr>
+				<td>
+					<table>
+						<tr>
+				         <td>
+					       <div class="resource_container_title">
+					       	 <% if current_user.has_role? :superadmin %>
+						       <%= link_to 'Institutions:', administrator_institutions_path %>
+						     <% else %>
+						       Institutions:
+						     <% end %>
+					       </div>
+				         </td>
+			            </tr>
+			            <tr>
+				         <td>
+					      <div class="resource_container">
+						    <% Institution.all.each do |institution| %>
+						      <%= institution.name %><br />
+						    <% end %>
+					      </div>			
+				         </td>
+		                </tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+				         <td>
+					       <div class="resource_container_faculty_title">
+					       	<%if current_user.has_role? :superadmin %>
+						       <%= link_to 'Faculties:', administrator_faculties_path %>
+						    <% else %>
+						       Faculties:
+						    <% end %>
+					       </div>
+				         </td>
+			            </tr>
+			            <tr>
+				         <td>
+					      <div class="resource_container">
+						    <% Institution.all.each do |institution| %>
+						     <% institution.faculties.each do |faculty| %>
+						      <%= faculty.name %><br />
+						     <% end %>
+						    <% end %>
+					      </div>			
+				         </td>
+		                </tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+				         <td>
+					       <div class="resource_container_department_title">
+					       	<% if current_user.has_role? :superadmin %>
+						     <%= link_to 'Departments:', administrator_departments_path %>
+						    <% else %>
+						     Departments:
+						    <% end %>  
+					       </div>
+				         </td>
+			            </tr>
+			            <tr>
+				         <td>
+					      <div class="resource_container">
+						    <% Institution.all.each do |institution| %>
+						     <% institution.faculties.each do |faculty| %>
+						      <% faculty.departments.each do |department| %>
+						       <%= department.name %><br />
+						      <% end %>
+						     <% end %>
+						    <% end %>
+					      </div>			
+				         </td>
+		                </tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>
+					<div class="voucher_count_title">
+						<% if current_user.has_role? :superadmin %>
+						<%= link_to 'Prepaid Cards', administrator_pins_path %>
+						<% else %>
+						Prepaid Cards
+						<% end %>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="total_count">
+						Total: <%= Pin.all.count %>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="home_admin_all">
+		This is the Home page for all administrators.
+	</div>
+</div>

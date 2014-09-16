@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @department_notice.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @department_notice.content %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @department_notice.date %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @department_notice.department.name %>
+</p>
+
+<p>
+  <b>Signed by:</b>
+  <%= @department_notice.signed_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_department_notice_path(@department_notice) %> |
+<%= link_to 'Back', administrator_department_notices_path %>

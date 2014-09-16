@@ -1,0 +1,23 @@
+<%= simple_form_for([:administrator, @level]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :level %>
+  </div>
+  <div class="field">
+    <%= f.label :institution_id %><br />
+    <%= f.collection_select :institution_id, Institution.order(:name), :id, :name, include_blank: false, :prompt => "- Select Institution -" %>
+  </div>
+  <div class="field">
+    <%= f.label :faculty_id %><br />
+    <%= f.grouped_collection_select :faculty_id, Institution.order(:name), :faculties, :name, :id, :name, include_blank: false, :prompt => "- Select Faculty -" %>
+  </div>
+  <div class="field">
+    <%= f.label :department_id %><br />
+    <%= f.grouped_collection_select :department_id, Faculty.order(:name), :departments, :name, :id, :name, include_blank: false, :prompt => "- Select Faculty -" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

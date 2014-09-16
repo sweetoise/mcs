@@ -45,7 +45,9 @@
 								<tr>
 									<td>
 									<div class="user_photo">
-									</div></td>
+										<%= image_tag current_user.photo.url(:small) %>
+									</div>
+									</td>
 
 									<% if current_user.name.length > 5 %>
 									<td>
@@ -79,7 +81,64 @@
 						<td>
 						  <div class="admin_leftpane">
 							<table>
-								
+								<tr>
+									<td>
+										<div class="navigation_title">
+											Manage Resources
+										</div>
+									</td>
+								</tr>
+								<% if current_user.has_role? :superadmin %>
+								<tr>
+									<td>
+										<div class="navigation_section">Schools Section</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Institutions', administrator_institutions_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Faculties', administrator_faculties_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Departments', administrator_departments_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Levels', administrator_levels_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<% if current_user.has_role? :superadmin or current_user.has_role? :voucher_admin%>
+								<tr>
+									<td>
+										<div class="navigation_section">Voucher Section</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links">
+											<%= link_to 'Voucher Pins', administrator_pins_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
 							</table>
 						  </div>
 						</td>

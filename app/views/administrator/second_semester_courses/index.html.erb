@@ -1,0 +1,35 @@
+<h1>Listing second_semester_courses</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Credit load</th>
+    <th>Content</th>
+    <th>Title</th>
+    <th>Course type</th>
+    <th>Level</th>
+    <th>Semester</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @second_semester_courses.each do |second_semester_course| %>
+  <tr>
+    <td><%= second_semester_course.code %></td>
+    <td><%= second_semester_course.credit_load %></td>
+    <td><%= second_semester_course.content %></td>
+    <td><%= second_semester_course.title %></td>
+    <td><%= second_semester_course.course_type.name %></td>
+    <td><%= second_semester_course.level.level %></td>
+    <td><%= second_semester_course.semester.name %></td>
+    <td><%= link_to 'Show', [:administrator, second_semester_course] %></td>
+    <td><%= link_to 'Edit', edit_administrator_second_semester_course_path(second_semester_course) %></td>
+    <td><%= link_to 'Destroy', [:administrator, second_semester_course], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Second semester course', new_administrator_second_semester_course_path %>

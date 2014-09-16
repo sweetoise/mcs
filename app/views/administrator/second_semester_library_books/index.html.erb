@@ -1,0 +1,31 @@
+<h1>Listing second_semester_library_books</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Name</th>
+    <th>Second semester course</th>
+    <th>Description</th>
+    <th>Book pages</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @second_semester_library_books.each do |second_semester_library_book| %>
+  <tr>
+    <td><%= second_semester_library_book.author %></td>
+    <td><%= second_semester_library_book.name %></td>
+    <td><%= second_semester_library_book.second_semester_course.code %></td>
+    <td><%= second_semester_library_book.description %></td>
+    <td><%= second_semester_library_book.book_pages %></td>
+    <td><%= link_to 'Show', [:administrator, second_semester_library_book] %></td>
+    <td><%= link_to 'Edit', edit_administrator_second_semester_library_book_path(second_semester_library_book) %></td>
+    <td><%= link_to 'Destroy', [:administrator, second_semester_library_book], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Second semester library book', new_administrator_second_semester_library_book_path %>

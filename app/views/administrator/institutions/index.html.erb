@@ -1,0 +1,38 @@
+<div class="institution_pagecontent">
+	<div class="showing_all_contents_title">
+		Showing All Institutions
+	</div>
+<div class="content_table">
+	<table>
+  <tr>
+    <th>
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @institutions.each do |institution| %>
+
+  <tr>
+    <td>
+    	<div class="institution_name_list">
+    		<%= institution.name %>
+    	</div>
+    </td>
+    <td><div class="content_links"><%= link_to 'Show', [:administrator, institution] %></div></td>
+    <td><div class="content_link"><%= link_to 'Edit', edit_administrator_institution_path(institution) %></div></td>
+    <td><div class="content_link"><%= link_to 'Destroy', [:administrator, institution], method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+
+<br />
+<div class="new_content-title">
+	<%= link_to 'New Institution', new_administrator_institution_path %>
+</div>
+
+
+</div>

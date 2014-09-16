@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @faculty_ad.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @faculty_ad.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @faculty_ad.address %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @faculty_ad.website %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @faculty_ad.price %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @faculty_ad.content %>
+</p>
+
+<p>
+  <b>Faculty:</b>
+  <%= @faculty_ad.faculty.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_faculty_ad_path(@faculty_ad) %> |
+<%= link_to 'Back', administrator_faculty_ads_path %>

@@ -1,0 +1,35 @@
+<h1>Listing faculty_ads</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Website</th>
+    <th>Price</th>
+    <th>Content</th>
+    <th>Faculty</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @faculty_ads.each do |faculty_ad| %>
+  <tr>
+    <td><%= faculty_ad.name %></td>
+    <td><%= faculty_ad.email %></td>
+    <td><%= faculty_ad.address %></td>
+    <td><%= faculty_ad.website %></td>
+    <td><%= faculty_ad.price %></td>
+    <td><%= faculty_ad.content %></td>
+    <td><%= faculty_ad.faculty.name %></td>
+    <td><%= link_to 'Show', [:administrator, faculty_ad] %></td>
+    <td><%= link_to 'Edit', edit_administrator_faculty_ad_path(faculty_ad) %></td>
+    <td><%= link_to 'Destroy', [:administrator, faculty_ad], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Faculty ad', new_administrator_faculty_ad_path %>

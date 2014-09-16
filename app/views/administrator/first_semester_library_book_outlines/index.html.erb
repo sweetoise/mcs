@@ -1,0 +1,29 @@
+<h1>Listing first_semester_library_book_outlines</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Content</th>
+    <th>Book url</th>
+    <th>First semester library book</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @first_semester_library_book_outlines.each do |first_semester_library_book_outline| %>
+  <tr>
+    <td><%= first_semester_library_book_outline.topic %></td>
+    <td><%= first_semester_library_book_outline.content %></td>
+    <td><%= first_semester_library_book_outline.book_url %></td>
+    <td><%= first_semester_library_book_outline.first_semester_library_book.name %></td>
+    <td><%= link_to 'Show', [:administrator, first_semester_library_book_outline] %></td>
+    <td><%= link_to 'Edit', edit_administrator_first_semester_library_book_outline_path(first_semester_library_book_outline) %></td>
+    <td><%= link_to 'Destroy', [:administrator, first_semester_library_book_outline], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New First semester library book outline', new_administrator_first_semester_library_book_outline_path %>

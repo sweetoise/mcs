@@ -1,0 +1,31 @@
+<h1>Listing institution_notices</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Signed by</th>
+    <th>Date</th>
+    <th>Institution</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @institution_notices.each do |institution_notice| %>
+  <tr>
+    <td><%= institution_notice.title %></td>
+    <td><%= institution_notice.content %></td>
+    <td><%= institution_notice.signed_by %></td>
+    <td><%= institution_notice.date %></td>
+    <td><%= institution_notice.institution.name %></td>
+    <td><%= link_to 'Show', [:administrator, institution_notice] %></td>
+    <td><%= link_to 'Edit', edit_administrator_institution_notice_path(institution_notice) %></td>
+    <td><%= link_to 'Destroy', [:administrator, institution_notice], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Institution notice', new_administrator_institution_notice_path %>

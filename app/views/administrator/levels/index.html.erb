@@ -1,0 +1,29 @@
+<h1>Listing levels</h1>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th>Department</th>
+    <th>Faculty</th>
+    <th>Institution</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @levels.each do |level| %>
+  <tr>
+    <td><%= level.level %></td>
+    <td><%= level.department.name %></td>
+    <td><%= level.faculty.name %></td>
+    <td><%= level.institution.name %></td>
+    <td><%= link_to 'Show', [:administrator, level] %></td>
+    <td><%= link_to 'Edit', edit_administrator_level_path(level) %></td>
+    <td><%= link_to 'Destroy', [:administrator, level], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Level', new_administrator_level_path %>

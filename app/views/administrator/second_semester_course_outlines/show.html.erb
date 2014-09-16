@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Topic:</b>
+  <%= @second_semester_course_outline.topic %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @second_semester_course_outline.content %>
+</p>
+
+<p>
+  <b>Book url:</b>
+  <%= @second_semester_course_outline.book_url %>
+</p>
+
+<p>
+  <b>Video url:</b>
+  <%= @second_semester_course_outline.video_url %>
+</p>
+
+<p>
+  <b>Second semester course:</b>
+  <%= @second_semester_course_outline.second_semester_course.code %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_second_semester_course_outline_path(@second_semester_course_outline) %> |
+<%= link_to 'Back', administrator_second_semester_course_outlines_path %>

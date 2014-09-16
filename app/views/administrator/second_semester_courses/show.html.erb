@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @second_semester_course.code %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @second_semester_course.content %>
+</p>
+
+<p>
+  <b>Course type:</b>
+  <%= @second_semester_course.course_type.name %>
+</p>
+
+<p>
+  <b>Credit load:</b>
+  <%= @second_semester_course.credit_load %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @second_semester_course.description %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @second_semester_course.level.level %>
+</p>
+
+<p>
+  <b>Semester:</b>
+  <%= @second_semester_course.semester.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @second_semester_course.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_second_semester_course_path(@second_semester_course) %> |
+<%= link_to 'Back', administrator_second_semester_courses_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Author:</b>
+  <%= @second_semester_library_book.author %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @second_semester_library_book.name %>
+</p>
+
+<p>
+  <b>Cover:</b>
+  <%= @second_semester_library_book.image %>
+</p>
+
+<p>
+  <b>Second semester course:</b>
+  <%= @second_semester_library_book.second_semester_course.code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @second_semester_library_book.description %>
+</p>
+
+<p>
+  <b>Book pages:</b>
+  <%= @second_semester_library_book.book_pages %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_second_semester_library_book_path(@second_semester_library_book) %> |
+<%= link_to 'Back', administrator_second_semester_library_books_path %>

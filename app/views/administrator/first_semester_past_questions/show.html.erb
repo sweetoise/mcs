@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>Year:</b>
+  <%= @first_semester_past_question.year %>
+</p>
+
+<p>
+  <b>First semester course:</b>
+  <%= @first_semester_past_question.first_semester_course.code %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_first_semester_past_question_path(@first_semester_past_question) %> |
+<%= link_to 'Back', administrator_first_semester_past_questions_path %>

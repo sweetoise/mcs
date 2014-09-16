@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Level:</b>
+  <%= @level.level %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @level.department.name %>
+</p>
+
+<p>
+  <b>Faculty:</b>
+  <%= @level.faculty.name %>
+</p>
+
+<p>
+  <b>Institution:</b>
+  <%= @level.institution.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_level_path(@level) %> |
+<%= link_to 'Back', administrator_levels_path %>

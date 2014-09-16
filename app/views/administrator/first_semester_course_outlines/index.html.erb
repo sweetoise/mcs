@@ -1,0 +1,31 @@
+<h1>Listing first_semester_course_outlines</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Book url</th>
+    <th>Video url</th>
+    <th>Content</th>
+    <th>First semester course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @first_semester_course_outlines.each do |first_semester_course_outline| %>
+  <tr>
+    <td><%= first_semester_course_outline.topic %></td>
+    <td><%= first_semester_course_outline.book_url %></td>
+    <td><%= first_semester_course_outline.video_url %></td>
+    <td><%= first_semester_course_outline.content %></td>
+    <td><%= first_semester_course_outline.first_semester_course.code %></td>
+    <td><%= link_to 'Show', [:administrator, first_semester_course_outline] %></td>
+    <td><%= link_to 'Edit', edit_administrator_first_semester_course_outline_path(first_semester_course_outline) %></td>
+    <td><%= link_to 'Destroy', [:administrator, first_semester_course_outline], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New First semester course outline', new_administrator_first_semester_course_outline_path %>

@@ -1,0 +1,26 @@
+<h1>Listing first_semester_past_questions</h1>
+
+<table>
+  <tr>
+
+    <th>Year</th>
+    <th>First semester course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @first_semester_past_questions.each do |first_semester_past_question| %>
+  <tr>
+    <td><%= first_semester_past_question.year %></td>
+    <td><%= first_semester_past_question.first_semester_course.code %></td>
+    <td><%= link_to 'Show', [:administrator, first_semester_past_question] %></td>
+    <td><%= link_to 'Edit', edit_administrator_first_semester_past_question_path(first_semester_past_question) %></td>
+    <td><%= link_to 'Destroy', [:administrator, first_semester_past_question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New First semester past question', new_administrator_first_semester_past_question_path %>

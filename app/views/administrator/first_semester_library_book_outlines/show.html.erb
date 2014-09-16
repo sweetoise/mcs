@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Topic:</b>
+  <%= @first_semester_library_book_outline.topic %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @first_semester_library_book_outline.content %>
+</p>
+
+<p>
+  <b>Book url:</b>
+  <%= @first_semester_library_book_outline.book_url %>
+</p>
+
+<p>
+  <b>First semester library book:</b>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_first_semester_library_book_outline_path(@first_semester_library_book_outline) %> |
+<%= link_to 'Back', administrator_first_semester_library_book_outlines_path %>

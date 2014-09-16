@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @faculty_update.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @faculty_update.content %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @faculty_update.date %>
+</p>
+
+<p>
+  <b>Signed by:</b>
+  <%= @faculty_update.signed_by %>
+</p>
+
+<p>
+  <b>Faculty:</b>
+  <%= @faculty_update.faculty_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_faculty_update_path(@faculty_update) %> |
+<%= link_to 'Back', administrator_faculty_updates_path %>

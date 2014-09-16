@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @institution_notice.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @institution_notice.content %>
+</p>
+
+<p>
+  <b>Signed by:</b>
+  <%= @institution_notice.signed_by %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @institution_notice.date %>
+</p>
+
+<p>
+  <b>Institution:</b>
+  <%= @institution_notice.institution.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_institution_notice_path(@institution_notice) %> |
+<%= link_to 'Back', administrator_institution_notices_path %>

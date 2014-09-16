@@ -1,0 +1,31 @@
+<h1>Listing faculty_notices</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Signed by</th>
+    <th>Date</th>
+    <th>Faculty</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @faculty_notices.each do |faculty_notice| %>
+  <tr>
+    <td><%= faculty_notice.title %></td>
+    <td><%= faculty_notice.content %></td>
+    <td><%= faculty_notice.signed_by %></td>
+    <td><%= faculty_notice.date %></td>
+    <td><%= faculty_notice.faculty_id %></td>
+    <td><%= link_to 'Show', [:administrator, faculty_notice] %></td>
+    <td><%= link_to 'Edit', edit_administrator_faculty_notice_path(faculty_notice) %></td>
+    <td><%= link_to 'Destroy', [:administrator, faculty_notice], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Faculty notice', new_administrator_faculty_notice_path %>

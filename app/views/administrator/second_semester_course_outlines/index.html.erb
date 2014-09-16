@@ -1,0 +1,31 @@
+<h1>Listing second_semester_course_outlines</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Content</th>
+    <th>Book url</th>
+    <th>Video url</th>
+    <th>Second semester course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @second_semester_course_outlines.each do |second_semester_course_outline| %>
+  <tr>
+    <td><%= second_semester_course_outline.topic %></td>
+    <td><%= second_semester_course_outline.content %></td>
+    <td><%= second_semester_course_outline.book_url %></td>
+    <td><%= second_semester_course_outline.video_url %></td>
+    <td><%= second_semester_course_outline.second_semester_course.code %></td>
+    <td><%= link_to 'Show', [:administrator, second_semester_course_outline] %></td>
+    <td><%= link_to 'Edit', edit_administrator_second_semester_course_outline_path(second_semester_course_outline) %></td>
+    <td><%= link_to 'Destroy', [:administrator, second_semester_course_outline], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Second semester course outline', new_administrator_second_semester_course_outline_path %>

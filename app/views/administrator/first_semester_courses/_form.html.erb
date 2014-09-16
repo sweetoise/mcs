@@ -1,0 +1,34 @@
+<%= simple_form_for ([:administrator, @first_semester_course]), :html => { :multipart => true } do |f| %>
+  <%= f.error_notification %>
+
+
+
+  <div class="form-inputs">
+    <%= f.input :code %>
+    <%= f.input :credit_load %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :content %>
+  </div>
+  
+ 
+  <div class="field">
+     <%= f.label :level_id %><br />
+     <%= f.grouped_collection_select :level_id, Department.order(:name), :levels, :name, :id, :level, include_blank: false, :prompt => "- Select Level -" %>          
+  </div> 
+  <div class="field">
+	  <%= f.label :semester_id %><br />
+	  <%= f.collection_select :semester_id, Semester.order(:name), :id, :name, include_blank: true, :prompt => "- Select Semester -" %>
+  </div>
+  <div class="field">
+	  <%= f.label :course_type_id %><br />
+	  <%= f.collection_select :course_type_id, CourseType.order(:name), :id, :name, include_blank: true, :prompt => "- Select Course Type -" %>
+  </div>
+    
+  
+ 
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

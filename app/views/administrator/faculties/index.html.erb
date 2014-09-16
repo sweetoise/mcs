@@ -1,0 +1,48 @@
+<h1>Listing faculties</h1>
+
+<table border="0">
+  <tr>
+    <th>Institution</th>
+    <th>Faculty</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ <% Institution.all.each do |institution| %>
+  <tr>
+  	<td>
+  		<div class="institutions_lists">
+  			<%= institution.name %>
+  		</div>
+  	</td>
+  	<td>
+  		<table border="0">
+  			<tr>
+  				<td>
+  					<% institution.faculties.all.each do |faculty| %>
+  		              <%= faculty.name %><br />
+  		            <% end %>
+  				</td>
+  				<td>
+  					<table>
+  						<% institution.faculties.all.each do |faculty| %>
+  						<tr>
+  					        <td><%= link_to 'Show', [:administrator, faculty] %></td>
+                            <td><%= link_to 'Edit', edit_administrator_faculty_path(faculty) %></td>
+                            <td><%= link_to 'Destroy', [:administrator, faculty], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  						</tr>
+  						<% end %>
+  					</table>
+  				</td>
+  			</tr>
+  		</table>
+  	</td>
+  	
+  </tr>
+ <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Faculty', new_administrator_faculty_path %>
+

@@ -8,6 +8,22 @@ Mcs::Application.routes.draw do
   get "administrator/index"
   get "listings/index"
   get "passthrough/index"
+  
+  
+  namespace :administrator do |admin|
+    resources :institutions
+    resources :faculties
+    resources :departments
+    resources :levels
+    resources :pins
+    resources :first_semester_courses
+    resources :first_semester_course_outlines
+    resources :second_semester_courses
+    resources :second_semester_course_outlines
+    resources :course_types
+    resources :semesters
+    
+  end
 
   devise_for :users, :controllers => {:registrations => "listings", :sessions => "login"}
 
