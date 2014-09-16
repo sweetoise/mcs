@@ -1,32 +1,629 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="profile_page_title">
+    User Profile - Page
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+<div class="user_edit_page">
+	<div class="editpage_container">
+		<div class="edit_user_form">
+			<% if current_user.institution == nil or current_user.faculty == nil or current_user.department == nil %>
+			<div class="edit_user_profile_institution_form">
+				<div class="institution_details_container">
+					<div class="institution_title">
+						Institution Information
+					</div>
+					<div class="institution_form">
+						<table>
+							<% if current_user.institution == nil %>
+							<tr>
+								<td>
+								  <div class="user_profile_login_institution_label">
+									<label for="institution">Institution</label>
+								  </div>
+								</td>
+							  <%= form_tag (updateusers_path), :method => 'get' do |f| %>
+								<td>
+									<%= select_tag(:id, options_for_select(Institution.find(:all).map{ |f| [f.name, f.id]}),
+								                   :prompt => "Select Institution", class: 'login_institution_select')%>
+								</td>
+								<td>
+								  <div class="">
+									<%= submit_tag 'set', class: 'save_edit_changes' %>
+								  </div>
+								</td>
+							  <% end %>
+							</tr>
+							<% else %>
+							<tr>
+								<td>
+								  <div class="user_profile_login_institution_label">
+									<label for="institution">Institution</label>
+								  </div>
+								</td>
+								<td>
+								  <div class="non_editable_institution">
+									: <%= current_user.institution.name %>
+								  </div>
+								</td>
+							</tr>
+							<% end %>
+						</table>
+					</div>
+					
+					
+					<div class="faculty_form">
+						<table>
+							<% if current_user.institution == nil %>
+							<tr>
+								<td>
+								  <div class="user_profile_login_faculty_label">
+									<label for="institution">Faculty</label>
+								  </div>
+								</td>
+								<td>
+									<%= select_tag(:id, options_for_select(EmptySelect.find(:all).map{ |f| [f.name, f.id]}),
+								                   :prompt => "Select Faculty", class: 'login_institution_select')%>
+								</td>
+							</tr>
+							<% else %>
+							  <% if current_user.faculty == nil %>
+							    <tr>
+							    	<td>
+								       <div class="user_profile_login_active_faculty_label">
+									      <label for="institution">Faculty</label>
+								       </div>
+								    </td>
+							    	<td>
+							    		<%= form_tag (updatefacultys_path), :method => 'get' do |f| %>
+								          <td>
+									        <%= select_tag(:id, options_for_select(current_user.institution.faculties.find(:all).map{ |f| [f.name, f.id]}),
+								                   :prompt => "Select Faculty", class: 'login_active_institution_select')%>
+								          </td>
+								          <td>
+								            <div class="">
+									            <%= submit_tag 'set', class: 'save_edit_changes' %>
+								            </div>
+								          </td>
+							            <% end %>
+							    	</td>
+							    </tr>
+							  <% else %>
+							       <tr>
+								<td>
+								  <div class="user_faculty_else_profile_login_faculty_label">
+									<label for="institution">Faculty</label>
+								  </div>
+								</td>
+								<td>
+								  <div class="non_exist_editable_institution">
+									: <%= current_user.faculty.name %>
+								  </div>
+								</td>
+							</tr>
+							  <% end %>
+							<% end %>
+							   
+						</table>
+						
+					</div>
+					
+					<div class="faculty_form">
+						<table>
+							<% if current_user.faculty == nil %>
+							<tr>
+								<td>
+								  <div class="user_profile_login_department_label">
+									<label for="institution">Department</label>
+								  </div>
+								</td>
+								<td>
+									<%= select_tag(:id, options_for_select(EmptySelect.find(:all).map{ |f| [f.name, f.id]}),
+								                   :prompt => "Select Department", class: 'login_institution_select')%>
+								</td>
+							</tr>
+							<% else %>
+							  <% if current_user.department == nil %>
+							    <tr>
+							    	<td>
+								       <div class="user_department_profile_login_faculty_label">
+									      <label for="institution">Department</label>
+								       </div>
+								    </td>
+							    	<td>
+							    		<%= form_tag (updatedepartments_path), :method => 'get' do |f| %>
+								          <td>
+									        <%= select_tag(:id, options_for_select(current_user.faculty.departments.find(:all).map{ |f| [f.name, f.id]}),
+								                   :prompt => "Select Department", class: 'login_department_institution_select')%>
+								          </td>
+								          <td>
+								            <div class="">
+									            <%= submit_tag 'set', class: 'save_edit_changes' %>
+								            </div>
+								          </td>
+							            <% end %>
+							    	</td>
+							    </tr>
+							  <% else %>
+							       <tr>
+								<td>
+								  <div class="user_exist_department_profile_login_faculty_label">
+									<label for="institution">Department</label>
+								  </div>
+								</td>
+								<td>
+								  <div class="non_editable_institution">
+									: <%= current_user.department.name %>
+								  </div>
+								</td>
+							</tr>
+							  <% end %>
+							<% end %>
+						</table>
+					</div>
+				</div>
+			</div>
+			<% else %>
+			<% end %>
+			<div class="devise_form">
+				<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
-  <div class="form-inputs">
-  	
-  	<%= f.input :name, :autofocus => true %>
-  	
-    <%= f.input :email, required: true, autofocus: true %>
-    
-    
+				<div class="form-inputs">
+					
+			    <% if current_user.institution == nil  or current_user.faculty == nil or current_user.department == nil %>
+				<% else %>
+				<table>
+				  <tr>
+					<td>
+					  <div class="user_picture_container">
+						<div class="user_photograph">
+							User Photograph
+						</div>
+						<div class="user_picture">
+							<%= image_tag current_user.photo.url(:pix) %>
+						</div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+						<% if current_user.photo.url.empty? %>
+						<div class="upload_picture_title">
+							<%= f.label 'Upload Picture' %>
+						</div>
+						<br />
+						<div class="browse_container">
+							<%= f.file_field :photo, class: 'browse_container_name' %>
+						</div>
+						<% else %>
+						<div class="browse_container_update">
+							<%= f.file_field :photo, class: 'browse_container_name' %>
+						</div>
+						<% end %>
+					</div>
+				  </td>
+				  <td>
+				  	<div class="user_presence_status">
+				  		<div class="user_presence_status_title">My Course Information</div>
+				  		<table>
+				  			<tr>
+				  				<td>
+				  					<div class="status_institution_details">
+				  						<table>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Name:
+				  									</div>
+				  								</td>
+				  								<% if current_user.first_name.blank? and  current_user.last_name.blank? %>
+				  								<td>
+				  									<div class="presence_name">
+				  										<%= current_user.name %>
+				  									</div>
+				  								</td>
+				  								<% else %>
+				  								<td>
+				  									<div class="presence_name">
+				  										<%= current_user.first_name %> &nbsp;<%= current_user.last_name %>
+				  									</div>
+				  								</td>
+				  								<% end %>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Institution:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<div class="presence_name">
+				  										<%= current_user.institution.name %>
+				  									</div>
+				  								</td>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Faculty:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<div class="presence_name">
+				  										<%= current_user.faculty.name %>
+				  									</div>
+				  								</td>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Department:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<div class="presence_name">
+				  										<%= current_user.department.name %>
+				  									</div>
+				  								</td>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Total number of Books:
+				  									</div>
+				  								</td>
+				  								<% if current_user.level == nil %>
+				  								<td>
+				  									<div class="presence_name">
+				  										No level record
+				  									</div>
+				  								</td>
+				  								<% else %>
+				  								<td>
+				  									<div class="presence_name">
+				  										<%= current_user.level.first_semester_courses.count + current_user.level.first_semester_library_books.count + current_user.level.second_semester_courses.count + current_user.level.second_semester_library_books.count %> &nbsp;(Including Class Notes) 
+				  									</div>
+				  								</td>
+				  								<% end %>
+				  							</tr>
+				  						</table>
+				  					</div>
+				  				</td>
+				  			</tr>
+				  		</table>
+				  		
+				  		<table>
+				  			<tr>
+				  				<td>
+				  					<div class="status_license_institution_details">
+				  						<table>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										License:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<% if current_user.pin == nil %>
+				  									<div class="presence_name">
+				  										None
+				  									</div>
+				  									<% else %>
+				  									<div class="presence_name">
+				  										<%= current_user.pin %>
+				  									</div>
+				  									<% end %>
+				  								</td>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Activated on:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<% if current_user.expiration == nil %>
+				  									<div class="presence_name">
+				  										Never
+				  									</div>
+				  									<% else %>
+				  									<div class="presence_name">
+				  										<%= current_user.expiration - 30.days %>
+				  									</div>
+				  									<% end %>
+				  								</td>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Expires on:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<% if current_user.expiration == nil %>
+				  									<div class="presence_name">
+				  										Never
+				  									</div>
+				  									<% else %>
+				  									<div class="presence_name">
+				  										<%= current_user.expiration %>
+				  									</div>
+				  									<% end %>
+				  									
+				  								</td>
+				  							</tr>
+				  							<tr>
+				  								<td>
+				  									<div class="presence_name_title">
+				  										Account Status:
+				  									</div>
+				  								</td>
+				  								<td>
+				  									<% if current_user.expiration == nil %>
+				  									<div class="presence_active_name">
+				  										Inactive
+				  									</div>
+				  									<% else %>
+				  									  <% if (current_user.expiration - Time.now).to_i <= 0 %>
+				  									  <div class="presence_expired_name">
+				  										Expired
+				  									  </div>
+				  									  <% elsif (current_user.expiration - Time.now).to_i >=1 %>
+				  									  <div class="presence_actives_name">
+				  										Active
+				  									  </div>
+				  									  <% end %>
+				  									<% end %>
+				  								</td>
+				  							</tr>
+				  						</table>
+				  					</div>
+				  				</td>
+				  			</tr>
+				  		</table>
+				  		
+				  	</div>
+				  </td>
+				</tr>
+			   </table>
+			 <% end %>
+					<div class="institution_and_personal_details">
+						<div class="login_details_container">
+							<div class="login_title">
+								Login Information
+							</div>
+							<div class="login_form">
+								<table border="0">
+									<tr>
+										<td>
+										<div class="login_email_label">
+											<%= f.label 'Email' %>
+										</div></td>
+										<td>
+										<div class="">
+											<%= f.input :email, :label => false, :required => true, :autofocus => false, input_html: { class: 'login_email_input' } %>
+										</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_password_label">
+											<%= f.label 'Password' %>
+										</div></td>
+										<td>
+										<div class="">
+											<%= f.input :password, :label => false, :autocomplete => "off", :required => false, input_html: { class: 'login_password_input' } %>
+										</div></td>
+										<td>
+										<div class="hint">
+											Leave it blank if not needed.
+										</div></td>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_confirm_password_label">
+											<%= f.label 'Confirm Password'%>
+										</div></td>
+										<td>
+										<div class="">
+											<%= f.input :password_confirmation, :label => false, :required => false, input_html: { class: 'login_confirm_password_input' } %>
+										</div></td>
+									</tr>
+								</table>
+							</div>
+						</div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
+						<div class="personal_info_details_container">
+							<table>
+								<tr>
+									<td>
+									<div class="personal_info_title">
+										Personal Information
+									</div></td>
+								</tr>
+							</table>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+							<div class="personal_info_form">
+								<table border="0">
+									<tr>
+										<td>
+										<div class="login_state_label">
+											<%= f.label 'Title' %>
+										</div>
+										</td>
+										<% if current_user.title.blank? %>
+										<td>
+										<div class="">
+											<%= f.collection_select :title_id, Title.order(:name), :id, :name, {include_blank: true}, {:class => 'title_select'} %>
+										</div>
+										</td>
+										<% else %>
+										<td>
+										<div class="existing_user_title">
+											: <%= current_user.title.name %>
+										</div>
+										</td>
+										<% end %>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_email_label">
+											<label for="first_name">First Name</label>
+										</div>
+										</td>
+										<% if current_user.first_name.blank? %>
+										<td>
+										<div class="">
+											<%= f.input :first_name, :label => false, :required => true, :autofocus => false, input_html: { class: 'login_password_input' } %>
+										</div>
+										</td>
+										<% else %>
+										<td>
+										<div class="existing_user_firstname">
+											: <%= current_user.first_name %>
+										</div>
+										</td>
+										<% end %>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_email_label">
+											<label for="last_name">Last Name</label>
+										</div>
+										</td>
+										<% if current_user.last_name.blank? %>
+										<td>
+										<div class="">
+											<%= f.input :last_name, :label => false, :required => true, :autofocus => false, input_html: { class: 'login_password_input' } %>
+										</div>
+										</td>
+										<% else %>
+										<td>
+										<div class="existing_user_firstname">
+											: <%= current_user.last_name %>
+										</div>
+										</td>
+										<% end %>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_email_label">
+											<%= f.label 'Alternative Email' %>
+										</div>
+										</td>
+										<td>
+										<div class="">
+											<%= f.input :alternative_email, :label => false, :required => true, :autofocus => false, input_html: { class: 'login_password_input' } %>
+										</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_age_label">
+											<%= f.label 'Age' %>
+										</div>
+										</td>
+										<% if current_user.age.blank? %>
+										<td>
+										<div class="">
+											<%= f.date_select :age, {include_blank: true, :start_year => Date.today.year, :end_year => 1980}, :class => 'state_select' %>
+										</div>
+										</td>
+										<% else %>
+										<td>
+										<div class="existing_user_age">
+											: <%= current_user.age %>
+										</div>
+										</td>
+										<% end %>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_age_label">
+											<%= f.label 'State Of Origin' %>
+										</div>
+										</td>
+										<% if current_user.state_of_origin == nil %>
+										<td>
+										<div class="">
+											<%= f.collection_select :state_of_origin_id, StateOfOrigin.order(:name), :id, :name, {include_blank: false, :prompt => "Choose State"}, {:class => 'state_select'} %>
+										</div>
+										</td>
+										<% else %>
+										<td>
+										<div class="existing_user_state">
+											: <%= current_user.state_of_origin.name %>
+										</div>
+										</td>
+										<% end %>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_email_label_address">
+											<%= f.label 'Address' %>
+										</div></td>
+										<td>
+										<div class="">
+											<%= f.input :address, :label => false, :required => true, :autofocus => false, input_html: { class: 'login_password_input_address' } %>
+										</div
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<div class="login_nationality_label">
+											<%= f.label 'Nationality' %>
+										</div>
+										</td>
+										<% if current_user.nationality.blank? %>
+										<td>
+										<div class="">
+											<%= f.collection_select :nationality_id, Nationality.order(:name), :id, :name, {include_blank: true}, {:class => 'title_select'} %>
+										</div>
+										</td>
+										<% else %>
+										<td>
+										<div class="existing_user_nationality">
+											: <%= current_user.nationality.name %>
+										</div>
+										</td>
+										<% end %>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
 
-<h3>Cancel my account</h3>
+					<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+					<p>
+						Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+					</p>
+					<% end %>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+					<div class="need_current_password">
+					   <b style="color: #b74900; text-transform: uppercase;">Note :</b>&nbsp;&nbsp;&nbsp; we need your current password to confirm your changes 
+					</div>
+					<div class="login_current_password">
+					<table>
+						<tr>
+							<td>
+							<div class="login_email_label">
+								<%= f.label 'Current Password' %>
+							</div>
+							</td>
+							<td>
+							<div class="">
+								<%= f.input :current_password, :label => false, :required => true, input_html: { class: 'login_current_password_input' } %>
+							</div>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+							<div class="form-actions">
+								<%= f.button :submit, "Update", class: 'user_update_button' %>
+							</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<%= link_to "Back", :back %>

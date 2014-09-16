@@ -1,0 +1,23 @@
+<div class="subscription-nav-links">
+	<table border="0">
+		<tr>
+			<td>
+				<div class="back-to-course">
+				   <%= link_to @library_book.first_semester_course.code, :controller => 'user_first_semester_course', :action => 'show', :id => @library_book.first_semester_course %>
+                   &nbsp;&nbsp;&nbsp;&nbsp;<< &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to @library_book.name, :controller => 'update_semester_course', :action => 'show', :id => @library_book %>
+			    </div> 
+			</td>
+			<td>
+				<div class="back-to-library">Go to: &nbsp;&nbsp;
+					<%= link_to 'Library', :controller => 'library', :action => 'books' %>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="general_course_details">
+	<%= render 'library_book_details' %>
+</div><br>
+<div class="first_semester_course_outline_container">
+	<%= render 'library_book_outlines'%>
+</div>

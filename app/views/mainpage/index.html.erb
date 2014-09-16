@@ -1,2 +1,51 @@
-<h1>Mainpage#index</h1>
-<p>Find me in app/views/mainpage/index.html.erb</p>
+<% if current_user.institution ==  nil %>
+<% else%>
+  <div class="institution_page_title"><%= current_user.institution.name %> UPDATES</div>
+<% end%>
+
+<% if current_user.institution == nil %>
+<% else %>
+   <% current_user.institution.institution_notices.each do |institution_notice| %>
+     <div class="institution_notice_title"><%= institution_notice.title %></div>
+     <div class="institution_notice_content"><%= institution_notice.content %></div>
+   <% end %>
+   <% current_user.institution.institution_updates.each do |institution_update| %>
+     <div class="institution_notice_title"><%= institution_update.title %></div>
+     <div class="institution_notice_content"><%= institution_update.content %></div>
+   <% end %>
+<% end %>
+
+
+<% if current_user.faculty ==  nil %>
+<% else%>
+<div class="faculty_page_title">FACULTY UPDATES</div>
+<% end %>
+<% if current_user.faculty == nil %>
+<% else %>
+   <% current_user.faculty.faculty_notices.each do |faculty_notice| %>
+     <div class="institution_notice_title"><%= faculty_notice.title %></div>
+     <div class="institution_notice_content"><%= faculty_notice.content %></div>
+   <% end %>
+  <% current_user.faculty.faculty_updates.each do |faculty_update| %>
+     <div class="institution_notice_title"><%= faculty_update.title %></div>
+     <div class="institution_notice_content"><%= faculty_update.content %></div>
+   <% end %>
+<% end %>
+
+
+<% if current_user.department ==  nil %>
+<% else%>
+<div class="faculty_page_title">Departmental UPDATES</div>
+<% end %>
+
+<% if current_user.department == nil %>
+<% else %>
+   <% current_user.department.department_notices.each do |department_notice| %>
+     <div class="institution_notice_title"><%= department_notice.title %></div>
+     <div class="institution_notice_content"><%= department_notice.content %></div>
+   <% end %>
+  <% current_user.department.department_updates.each do |department_update| %>
+     <div class="institution_notice_title"><%= department_update.title %></div>
+     <div class="institution_notice_content"><%= department_update.content %></div>
+   <% end %>
+<% end %>

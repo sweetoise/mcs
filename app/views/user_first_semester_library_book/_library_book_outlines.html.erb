@@ -1,0 +1,41 @@
+<div class="course_outline_container">
+	<div class="course_outline_title">Relevant Topics</div>
+		<div class="course_outline_table">
+			<% if @library_book.first_semester_library_book_outlines.count > 12 %>
+              <% @library_book.first_semester_library_book_outlines.take(12).each do |library_outline|%>
+                     <div class="topic_protector">
+              	        <div class="library_book_outline_topic"><%= link_to library_outline.topic, :controller =>  'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+                     </div>
+                     <% if library_outline.content.length > 400 %>
+					    <div class="library_book_outline_content"><%= truncate library_outline.content, length: 436 %></div>
+					 <div class="content_protector">
+                     <% else %>
+					    <div class="library_book_outline_content"><%= library_outline.content %></div>
+				     <% end %>
+				     </div>
+               <% end %>
+               	  <div class="course_outline_topic_view">
+               	     <%= link_to 'view all', :controller => 'first_semester_library_book_outline', :action => 'show', :id => 1 %>
+               	  </div>	
+             <% else %>
+               <% @library_book.first_semester_library_book_outlines.each do |library_outline|%>
+               <table>
+               	<tr>
+               		<td>
+              	        <div class="library_book_outline_topic"><%= link_to library_outline.topic, :controller =>  'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+               		</td>
+               		<% if library_outline.content.length > 400 %>
+               		<td>
+               			<div class="library_book_outline_content"><%= truncate library_outline.content, length: 436 %></div>
+               		</td>
+               		<% else %>
+               		<td>
+               			<div class="library_book_outline_content"><%= library_outline.content %></div>
+               		</td>
+               		<% end %>
+               	</tr>
+               </table>
+               <% end %>
+             <% end %>							
+		</div>		
+</div>

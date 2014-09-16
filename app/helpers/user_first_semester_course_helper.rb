@@ -1,0 +1,2 @@
+module UserFirstSemesterCourseHelper
+end

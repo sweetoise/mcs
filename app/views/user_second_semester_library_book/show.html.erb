@@ -1,0 +1,26 @@
+<div class="subscription-nav-links">
+	<table border="0">
+		<tr>
+			<% if current_user.second_semester_course == nil %>
+			<% else %>
+			<td>
+				<div class="back-to-course">
+				   <%= link_to current_user.second_semester_course.code, :controller => 'user_second_semester_course', :action => 'show', :id => current_user.second_semester_course %>
+                   &nbsp;&nbsp;&nbsp;&nbsp;<< &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to @library_book.name, :controller => 'second_update_semester_course', :action => 'show', :id => @library_book %>
+			    </div> 
+			</td>
+			<% end %>
+			<td>
+				<div class="back-to-library">Go to: &nbsp;&nbsp;
+					<%= link_to 'Library', :controller => 'library', :action => 'books' %>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="general_course_details">
+	<%= render 'library_book_details' %>
+</div><br>
+<div class="first_semester_course_outline_container">
+	<%= render 'library_book_outlines'%>
+</div>

@@ -1,0 +1,40 @@
+<% if @first_semester_course %>
+<div class="course_outline_container">
+	<div class="course_outline_title">Course Outline</div>
+		<table class="course_outline_table">
+			<% if @first_semester_course.first_semester_course_outlines.count > 15 %>
+               <% @first_semester_course.first_semester_course_outlines.take(15).each do |course_outline|%>
+                  <tr>
+                     <td>
+                     	<div class="course_outline_topic"><%= link_to course_outline.topic, :controller => 'first_semester_course_outline', :action => 'show', :id => course_outline %></div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+					    <div class="course_outline_content"><%= course_outline.content %></div>
+				     </td>
+                  </tr>
+               <% end %>
+              </table>
+               <table>
+               	  <div class="course_outline_topic_view">
+               	     <%= link_to 'view all', :controller => 'first_semester_course_outline', :action => 'show', :id => 1 %>
+               	  </div>
+            <% else %>	
+            <% @first_semester_course.first_semester_course_outlines.each do |course_outline|%>
+                  <tr>
+                     <td>
+                     	<div class="course_outline_topic"><%= link_to course_outline.topic, :controller => 'first_semester_course_outline', :action => 'show', :id => course_outline %></div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+					    <div class="course_outline_content"><%= course_outline.content %></div>
+				     </td>
+                  </tr>
+               <% end %>	
+            <% end %>						
+		</table>		
+</div>
+<% else %>
+<% end %>

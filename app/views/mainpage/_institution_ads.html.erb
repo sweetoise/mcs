@@ -1,0 +1,57 @@
+ <html>
+ 	<head>
+ 		<script src="../javascripts/jquery-1.8.2.min.js"></script>
+        <script src="../javascripts/jquery.bxslider.js"></script>
+        <link href="../stylesheets/adverts.bxslider.css" rel="stylesheet" />
+ 	</head>
+ 	
+ 	<body>
+ 		<div class="institution_ads">
+			<% if current_user.institution == nil %>
+			  <div class="no_institution_record">No Institution Record</div>
+			<% else %>
+			  <div class="slider-wrapper">
+                  <ul class="bxslider">
+			         <% current_user.institution.institution_ads.each do |institution_ad| %>
+			         <li>
+			         	<div class="ads_container">
+			         	
+                           	  <div class="ads_name"><%= institution_ad.name %></div>  <br />                        		
+                           	  <div class="ads_content_container"><%= institution_ad.content %></div>
+                              <br />
+                              <div class="email_price">
+                              <% if institution_ad.price == nil %>
+                        	  <% else %>
+                               <div class="ads_price">                         	
+                            	 <div class="price_bg"><%= sprintf("N %0.02f" , institution_ad.price) %></div><div class="price_label">Price</div>
+                               </div>
+                              <% end %>
+                              <% if institution_ad.email == nil %>
+                        	  <% else %>
+                                <div class="email_container"><%= institution_ad.email %></div><br />
+                              <% end %>
+                        	  
+                              </div>
+                        </div>
+                       </li>
+                      <% end %>	
+                    </ul>
+                 </div>	  
+            <% end %>
+            </div>
+            <script type="text/javascript">
+             $(document).ready(function(){
+             $('.bxslider').bxSlider({
+               mode: 'fade',
+               auto: true,
+               speed:300,
+               pause:26000,
+               randomStart: true,
+               autoControls: true
+              });
+             });
+        </script>
+ 	</body>
+ </html>
+ 
+ 

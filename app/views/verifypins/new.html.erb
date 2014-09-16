@@ -1,0 +1,153 @@
+<div class="verifypin_page">
+	<div class="payment-methods">
+			<table>
+				<tr>
+					<td>
+					<div class="">
+						<%= link_to 'Prepaid Voucher', '/payment_method/voucher', :class => 'prepaid-voucher-enable' %>
+					</div></td>
+					<td>
+					<div class="">
+						<%= link_to 'Bank Transfer', '/payment_method/bank', :class => 'bank-transfer-enable' %>
+					</div>
+					</td>
+					<td>
+					<div class="">
+						<%= link_to 'Interswitch', '#', :class => 'bank-transfer-enable' %>
+					</div>
+					</td>
+					<td>
+					<div class="">
+						<%= link_to 'Mobile Money', '#', :class => 'bank-transfer-enable' %>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	<div class="containing_verifypinform">
+		
+		<div class="verifypin_form_invalid_msg">
+			<table border="0">
+				<tr>
+					<td>
+					<div class="invalid_msg">
+						<div class="invalid_msgs">
+							<table>
+								<tr>
+									<% if (current_user.pin_load_attempt < 1) %>
+									<td><b style="color: red;"><%= render 'layouts/messages' %></b></td>
+									<% if flash.empty? %>
+
+									<% else %>
+									<td> &nbsp;&nbsp;(<%= 4 - (current_user.pin_load_attempt)%> more attempts.) </td>
+									<% end %>
+									<% elsif current_user.pin_load_attempt > 0 and current_user.pin_load_attempt < 4 %>
+									<td><b style="color: red;"><%= render 'layouts/messages' %></b></td>
+									<% if flash.empty? %>
+									<td> &nbsp;&nbsp; <%= 4 - (current_user.pin_load_attempt)%> more attempt(s) </td>
+									<% else %>
+									<td> &nbsp;&nbsp;( <%= 4 - (current_user.pin_load_attempt)%> more attempts ) </td>
+									<% end %>
+
+									<% end %>
+								</tr>
+							</table>
+						</div>
+					</div> <% if current_user.pin_load_attempt >= 4 %>
+					<div class="maximum_attempt">
+						<b style="color: #b74900; margin-left: 50px; font-size: 12px;">Notice:</b> &nbsp;&nbsp;Sorry, Maximum number of allowed attempts exceeded. You cannot make payments with the voucher form.
+						<p style="margin-left: 110px; line-height: 15px;">
+							Please contact an <%= link_to 'online customer representative', '#' %> to re-enable your voucher payment form.
+							<br />
+							Kindly resort to payments by using the <b style="color: #4e4e4e;">Bank Transfer</b> link.
+						</p>
+
+					</div> <% else %>
+					<div class="verify_form">
+						<%= form_for(:verifypins, url: verifypins_path) do |f| %>
+
+						<%= f.label 'Enter Pin Here', :class => 'enter_pin' %>: &nbsp
+						<%= f.text_field :number, :required => true, :autocomplete => :off, :autofocus => true, label: false, class: 'activate_voucher_input' %>
+						<%= f.submit "Enter", class: 'verifypin_activate_button' %>
+						<% end %>
+					</div>
+					</td>
+					<td>
+						<div class="mcs_card_logo"></div>
+						<div class="wrongly_scratched_pin">
+						   Contact an <%= link_to 'online assistant', '#' %> to help you retrieve pin.
+						</div>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+
+		</div>
+		<div class="get_prepaid_voucher">
+			<div class="where_to_get_voucher">
+				Where and how to get My Course Study voucher?
+			</div>
+			<div class="get_voucher_content">
+				Walk into any Guaranty Trust bank branch in Nigeria, tell them you want to buy My Course Study Limited voucher on Guaranty Trust xpath platform.
+				<br />
+				<p>
+					You would be given preferential treatment.
+				</p>
+				<p>
+					Remember tell them <b>Guaranty Trust Xpath platform</b>.  The Cashier would give you a deposit slip which you would fill  the information
+				</p>
+				<p>
+					<div class="voucher_account_details">
+						<table>
+							<tr>
+								<td>Account Name</td>
+								<td>&nbsp&nbsp<b>:</b>&nbsp&nbsp</td>
+								<td style="font-family: verdana; font-weight: bold;">MCS LTD</td>
+							</tr>
+							<tr>
+								<td>Account Number</td>
+								<td>&nbsp&nbsp<b>:</b>&nbsp&nbsp</td>
+								<td style="font-family: verdana; font-weight: bold;">0033238006</td>
+							</tr>
+						</table>
+					</div>
+				</p>
+				<p>
+					Available denomination <b>N1000</b> only.
+				</p>
+
+				If you Fill any other denomination in the deposit form, the cashier would tell you its not available. After making payment, the voucher would be given to you.
+			</div>
+		</div>
+		<div class="how_to_use_voucher">
+			How to use My Course Study pre-paid voucher?
+		</div>
+		<div class="bottom_get_voucher_content">
+			To get activated pin, follow the instructions below,   Please gently scrape off with coin or similar object on pre-paid voucher pin section.
+		</div>
+		<div class="how_to_use_voucher_content">
+			1  &nbsp&nbsp&nbsp    Please login into the system from www.mycoursestudy.com for registration.
+			<br />
+			2  &nbsp&nbsp&nbsp    If you are already a member of www.mycoursestudy.com skip to step three.
+			<br />
+			3  &nbsp&nbsp&nbsp    Please click the <%= link_to 'renew subscription', '#' %> button from menu.
+			<br />
+			4  &nbsp&nbsp&nbsp    Please enter the 16 digits pin  and then click to activate button.
+			<br />
+			5  &nbsp&nbsp&nbsp    When  the pin is approved, your account will automatically be activated.
+			<br />
+			6  &nbsp&nbsp&nbsp   If you make mistakes 4 times when inputing the code, your account will be blocked.
+			<br />
+		</div>
+		<div class="important_notes">
+			<p>
+				<b style="color:#b74900">Important notes :</b> Our company is not responsible for the loss ,deformed and package  opened cards. Password is only for single use.
+				<br />
+				Pre-paid card is non returnable.   For questions and suggestions please send a mail to support@mycoursestudy.com or call any of our
+				<br />
+				customer care numbers listed on our Contact Us page.
+			</p>
+		</div>
+	</div>
+</div>
+

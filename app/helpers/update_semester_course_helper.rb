@@ -1,0 +1,2 @@
+module UpdateSemesterCourseHelper
+end

@@ -1,0 +1,2 @@
+module FirstSemesterCourseOutlineHelper
+end

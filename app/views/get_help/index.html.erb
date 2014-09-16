@@ -1,0 +1,46 @@
+<div class="get_help_pagecontent">
+	<div class="gethelp_info_title">MyCourseStudy User Help Page</div>
+	<div class="asked_questions_links">
+		<div class="asked_questions_title">Frequently Asked Questions</div>
+		<div class="faq_display_container">
+			<div class="faq_display">
+				<table>
+					<% @faqs.each do |faq| %>
+                   <tr>
+                      <td class="faq_questions"><%= faq.question %>?</td>                     
+                   </tr>
+                   <tr>
+                   	 <td class="faq_answers"><%= faq.answer %></td>
+                   </tr>
+                    <% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="gethelp_content_table">
+		<div class="gethelp_table">Take a Tour</div>
+		<div class="gethelp_content">
+			<table>
+              <% @table_of_contents.each do |table_of_content| %>
+             <tr>
+               <td class="gethelp_content_titles">
+               	<a href="#<%= table_of_content.title %>">.<%= table_of_content.title %></a>
+               </td>
+             </tr>
+              <% end %>
+            </table>
+		</div>
+		<div class="gethelp_content_display">
+			<table>				
+               <% @table_of_contents.each do |table_of_content| %>
+              <tr>
+                <td class="content_display_title"><a name="<%= table_of_content.title%>"><%= table_of_content.title %></a></td>
+              </tr>
+              <tr>
+                <td class="content_display_description"><%= table_of_content.description %></td>
+              </tr>
+               <% end %>
+			</table>
+		</div>
+	</div>
+</div>

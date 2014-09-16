@@ -1,0 +1,66 @@
+
+<div class="contact_us_pagecontent">
+	<div class="contact_info">
+	  <div class="contact_info_title">MyCourseStudy Contact page:</div>
+		<div class="office_address_title">Office Addresses</div>
+		<div class="listing_office_addresses">
+		  <table>
+			<% @office_addresses.each do |office_address| %>
+              <tr>
+                <td class="office_type"><%= office_address.OfficeType.name %>:</td>
+              </tr>
+              <tr>
+              	<td class="office_address"><%= office_address.address %></td>
+              </tr>
+            <% end %>
+          </table>
+		</div>
+	</div>
+	<div class="other_contact_info">
+		<div class="other_contact_title">Reach Us through</div>
+		<div class="postoffice"></div>
+		<div class="email">
+		<div class="email_address_title">Email Us</div>
+		<div class="listing_email_addresses">
+		  <table>
+			<% @email_addresses.each do |email_address| %>
+               <tr>
+                  <td class="email_address"><%= email_address.name %></td>
+               </tr>
+            <% end %>
+          </table>
+		</div>
+	   </div>	   
+	</div>
+	<div class="phone_followup">
+	<div class="followup_container">
+		<div class="followup_title">Meet Us</div>
+		<div class="listing_followups">
+			<table border="0">
+				<tr>
+					<td class="facebook"><%= link_to 'FACEBOOK', 'https://www.facebook.com/mycoursestudy' %></td>
+					<td class="twitter"><%= link_to 'TWITTER', 'http://www.twitter.com/mycoursestudy' %></td>
+					<td class="google"><%= link_to 'GOOGLE+', 'http://www.googleplus.com/mycoursestudy' %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="contact_phone">
+		<div class="contact_phone_title">Call</div>
+		<div class="listing_contact_phone">
+			<table>
+				<tr>
+					<td class="first_number">(+234)7032226536</td>
+				</tr>
+				<tr>
+					<td class="second_number">(+234)8164802361</td>
+				</tr>
+				<tr>
+					<td class="third_number">(+234)8023538685</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</div>
+	
+</div>

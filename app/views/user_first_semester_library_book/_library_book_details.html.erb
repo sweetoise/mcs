@@ -1,0 +1,82 @@
+<div class="course_code_detail">
+  <%= @library_book.name %>
+</div>
+<div class="first_semester_course_heading">
+  <table border="0">
+	<tr>
+		<td>
+			<div class="first_semester_library_book_image">
+				<%= image_tag @library_book.image.url(:thumb) %>
+			</div>
+		</td>
+		<% if @library_book.description.length > 225 %>
+		<td>
+			<div class="first_semester_library_book_description">
+			  <%= truncate @library_book.description, length: 225 %>
+		    </div>
+		</td>
+		<% else %>
+		<td>
+			<div class="first_semester_library_book_description">
+			  <%= @library_book.description %>
+		    </div>
+		</td>
+		<% end %>
+		<td>
+			<div class="first_semester_library_books_details"> 
+				<table border="0">
+				    <tr>
+				    	<td>
+				    		<div class="semester_library_book_author">
+				    		  Author(s): 
+				    		</div> 
+				    	</td>
+				    	<td>
+				    		<div class="semester_library_book_detail">
+				    			<%= @library_book.author %>
+				    		</div>			    		
+				    	</td>
+				    </tr>
+				     <tr>
+				    	<td>
+				    		<div class="semester_library_book_author">
+				    		  Pages: 
+				    		</div> 
+				    	</td>
+				    	<td>
+				    		<div class="semester_library_book_detail">
+				    			<%= @library_book.book_pages %> pages.
+				    		</div>			    		
+				    	</td>
+				    </tr>
+				    <tr>
+				    	<td>
+				    		<div class="semester_library_book_author">
+				    		  Semester Course: 
+				    		</div> 
+				    	</td>
+				    	<td>
+				    		<div class="semester_library_book_detail">
+				    			<%= @library_book.first_semester_course.code %>
+				    		</div>			    		
+				    	</td>
+				    </tr>
+				</table>				                               		                        			
+			</div>
+		</td>
+		<td>
+			<div class="first_semester_course_library_books_details2">
+				<div class="reading_materials_container">[ read also ]</div> 
+				<% @library_book.first_semester_course.first_semester_library_books.each do |book| %>                            	
+                  <% if book.name == nil %>
+                  <% else %>                                          		                        			
+                     <div class="library_book_name"><b><%= link_to book.name, :controller => 'user_first_semester_library_book', :action => 'show', :id => book %></b> by: <%= book.author %></div>
+                  <% end %>                            	                                   		                            	                               	   
+                <% end %>
+			</div>
+		</td>
+	</tr>
+  </table>
+</div>
+
+

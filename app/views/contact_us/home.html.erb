@@ -1,0 +1,158 @@
+<div class="contact_us_pagecontent">
+	<div class="contact_info_title">
+	    Contact Us - page
+	</div>
+	<div class="containing_contactpage">
+		<div class="contact_info">
+
+			<div class="office_address_title">
+				Office - Addresses
+			</div>
+			<div class="listing_office_addresses">
+				<table>
+						<div class="type_address">
+						<tr>
+							<td class="office_type">
+								<div class="office_type_title">
+								  Head Offices:
+								</div>
+							</td>
+							<td>
+								<div class="office_address_titles">
+								<table>
+									<tr>
+						                 <td class="office_address">
+						                 	66, Lagos - Benin express way, ugbowo, benin city, Edo state. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						                 	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+						                 </td>
+						            </tr>
+						            <tr>
+						                <td class="office_address">
+						                 	236, Upper Mission Road, New benin, benin city, Edo state. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						                 	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+						                 </td>
+						            </tr>				            
+								</table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="office_type">
+								<div class="branch_office_type_title">
+								  Branch Offices:
+								</div>
+							</td>
+							<td>
+								<div class="office_address_titles">
+								<table>
+									<tr>
+						                 <td class="branch_office_address">
+						                 	108, Lagos - Benin express way, ugbowo, benin city, Edo state. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						                 	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+						                 </td>
+						            </tr>
+						            <tr>
+						                <td class="office_address">
+						                 	236, Upper Mission Road, New benin, benin city, Edo state. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						                 	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+						                 </td>
+						            </tr>
+						            <tr>
+						                <td class="office_address">
+						                 	Omega Avenue, Plot 102, Usen, Ekenwa road, benin city, Edo state. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						                 	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+						                 </td>
+						            </tr>
+								</table>
+								</div>
+							</td>
+						</tr>
+						</div>
+				</table>
+			</div>
+		</div>
+		<div class="other_contact_info">
+			<div class="other_contact_title">
+				Other Contact - info
+			</div>
+
+			<div class="email">
+				<div class="email_address_title">
+					Email - us
+				</div>
+				<div class="listing_email_addresses">
+					<table>
+						<% EmailAddress.all.each do |email_address| %>
+						<tr>
+							<td class="email_address"><%= email_address.name %></td>
+						</tr>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="contact_phone">
+			<div class="contact_phone_title">
+				Call - us
+			</div>
+			<div class="listing_contact_phone">
+				<table>
+					<tr>
+						<td>
+							<table>
+							   <tr>
+						         <td class="first_number">0703-222-6536</td>
+					           </tr>
+					           <tr>
+						         <td class="second_number">0816-480-2361</td>
+					           </tr>
+					           <tr>
+						         <td class="third_number">0813-554-3556</td>
+					           </tr>
+					           <tr>
+						         <td class="second_number">xxxx-xxx-xxxx</td>
+					           </tr>
+							</table>
+						</td>
+						<td>
+							<table class="second_phonenumbers_lists">
+								<tr>
+						         <td class="first_number">0806-036-2330</td>
+					           </tr>
+					           <tr>
+						         <td class="second_number">0706-496-6883</td>
+					           </tr>
+					           <tr>
+						         <td class="third_number">0813-472-4738</td>
+					           </tr>
+					           <tr>
+						         <td class="second_number">xxxx-xxx-xxxx</td>
+					           </tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="phone_followup">
+			<div class="followup_container">
+				<div class="followup_title">
+					Meet - Us
+				</div>
+				<div class="listing_followups">
+					<table border="0">
+						<tr>
+							<td class="facebook"><%= link_to 'FACEBOOK', 'https://www.facebook.com/mycoursestudy' %></td>
+							<td class="twitter"><%= link_to 'TWITTER', 'http://www.twitter.com/mycoursestudy' %></td>
+							<td class="google"><%= link_to 'GOOGLE+', 'http://www.googleplus.com/mycoursestudy' %></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

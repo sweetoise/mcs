@@ -1,0 +1,2 @@
+module UserSecondSemesterLibraryBookHelper
+end

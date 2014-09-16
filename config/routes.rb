@@ -1,8 +1,41 @@
 Mcs::Application.routes.draw do
+ 
+
+
+  match '/first-semester-course/library_book', to: 'user_first_semester_library_book#show'
+  match '/second-semester-course/library_book', to: 'user_second_semester_library_book#show'
+  match '/first-semester/course', to: 'user_first_semester_course#show'
+  match '/second-semester/course', to: 'user_second_semester_course#show'
+  match 'payment_method/bank', to: 'payment_method#bank_transfer'
+  match '/first-semester-course/view_library_book', to: 'update_semester_course#show'
+  match '/second-semester-course/view_library_book', to: 'second_update_semester_course#show'
+  match '/course/topic', to: 'first_semester_course_outline#show'
+
+
+
+
+  get "scan/pin_attempt"
+  get "payment_method/bank_transfer"
+  get "contact_us/index"
+  get "contact_us/home"
+  get "get_help/index"
+  get "get_help/view"
+  get "questions_and_solutions/index"
+  get "library/books"
+
+
+
+
+
+  resources :updateusers
+  resources :updatefacultys
+  resources :updatedepartments
+  resources :verifylevels
+
+
+
 
   resources :terms_of_uses
-
-
   resources :titles
   resources :nationalities
   resources :state_of_origins
@@ -11,11 +44,14 @@ Mcs::Application.routes.draw do
   resources :email_addresses
   resources :copywrite_terms
   resources :copywrite_addresses
-  resources :terms_of_uses
   resources :table_of_contents
   resources :faqs
   resources :events
   resources :updates
+
+  resources :verifypins, only: [:new, :create, :destroy]
+  match '/payment_method/voucher', to: 'verifypins#new'
+  match '/deletepin', to: 'verifypins#destroy', via: :delete
 
   get "login/index"
   get "mainpage/index"

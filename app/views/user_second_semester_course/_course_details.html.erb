@@ -1,0 +1,43 @@
+<% if @second_semester_course %>
+<div class="course_code_detail">
+  <%= @second_semester_course.code %> - <%= @second_semester_course.title%>
+</div>
+<div class="first_semester_course_heading">
+  <table border="0">
+	<tr>
+		<td>
+			<div class="first_semester_course_image">
+			</div>
+		</td>
+		<% if @second_semester_course.description.length > 235 %>
+		  <td>
+		    <div class="first_semester_course_description">
+			   <%= truncate @second_semester_course.description, length: 235 %>
+		    </div>
+	      </td>
+	    <% else %>
+		  <td>
+		    <div class="first_semester_course_description">
+			   <%= @second_semester_course.description %>
+		    </div>
+	      </td>
+	    <% end %>
+
+		<td>
+			<div class="first_semester_course_library_books_details">
+				<div class="reading_materials_container">[ free to read ]</div> 
+				<% @second_semester_course.second_semester_library_books.each do |book| %>                            	
+                  <% if book.name == nil %>
+                  <% else %>                                          		                        			
+                     <div class="library_book_name"><b><%= link_to book.name, :controller => 'user_second_semester_library_book', :action => 'show', :id => book %></b> by: <%= book.author %></div>
+                  <% end %>                            	                                   		                            	                               	   
+                <% end %>
+			</div>
+		</td>
+	</tr>
+  </table>
+</div>
+<% else %>
+<% end %>
+
+

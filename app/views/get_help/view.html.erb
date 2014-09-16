@@ -1,0 +1,69 @@
+<div class="get_help_pagecontent">
+	<div class="library-books-page-heading">
+		User Help - Page
+	</div>
+	<div class="containing_gethelp">
+		<div class="asked_questions_links">
+			<div class="perceived_questions_title">
+				<table>
+					<tr>
+						<td>
+							<div class="please_note">Please Note:</div>
+						</td>
+						<td>
+							<div class="notify_text">
+								This page has been set up to answer common questions. It's not intended to provide a tutorial about MCS in general
+							    but to address the peculiarities of <b style="color: #b74900;">MCS</b>. If you can't find the answer to your question here,
+							    feel free to ask us on our online assistant instant messaging platform or drop us a line to support@mycoursestudy.com. Thank you.
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="asked_questions_title">
+				Frequently Asked Questions
+			</div>
+			<div class="faq_display_container">
+				<div class="faq_display">
+					<table>
+						<% Faq.all.each do |faq| %>
+						<tr>
+							<td class="faq_questions"><%= faq.question %>?</td>
+						</tr>
+						<tr>
+							<td class="faq_answers"><%= faq.answer %></td>
+						</tr>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="gethelp_content_table">
+			<div class="gethelp_table">
+				Take a Tour
+			</div>
+			<div class="gethelp_content">
+				<table>
+					<% TableOfContent.all.each do |table_of_content| %>
+					<tr>
+						<td class="gethelp_content_titles"><a href="#<%= table_of_content.title %>"><%= table_of_content.title %></a></td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+			<div class="gethelp_content_display">
+				<table>
+					<% TableOfContent.all.each do |table_of_content| %>
+					<tr>
+						<td class="content_display_title"><a name="<%= table_of_content.title%>"><%= table_of_content.title %></a></td>
+					</tr>
+					<tr>
+						<td class="content_display_description"><%= table_of_content.description %></td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
