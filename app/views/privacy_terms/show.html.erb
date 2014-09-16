@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Introduction:</b>
+  <%= @privacy_term.introduction %>
+</p>
+
+<p>
+  <b>Policy:</b>
+  <%= @privacy_term.policy %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @privacy_term.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_privacy_term_path(@privacy_term) %> |
+<%= link_to 'Back', privacy_terms_path %>

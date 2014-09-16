@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  year: 1
+  solution_url: MyString
+  first_semester_course_id: 1
+
+two:
+  year: 1
+  solution_url: MyString
+  first_semester_course_id: 1

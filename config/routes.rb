@@ -1,16 +1,28 @@
 Mcs::Application.routes.draw do
 
+  resources :terms_of_uses
 
+
+  resources :titles
+  resources :nationalities
+  resources :state_of_origins
+  resources :privacy_terms
+  resources :empty_selects
+  resources :email_addresses
+  resources :copywrite_terms
+  resources :copywrite_addresses
+  resources :terms_of_uses
+  resources :table_of_contents
+  resources :faqs
+  resources :events
   resources :updates
-
 
   get "login/index"
   get "mainpage/index"
   get "administrator/index"
   get "listings/index"
   get "passthrough/index"
-  
-  
+
   namespace :administrator do |admin|
     resources :institutions
     resources :faculties
@@ -21,13 +33,24 @@ Mcs::Application.routes.draw do
     resources :first_semester_course_outlines
     resources :first_semester_library_books
     resources :first_semester_library_book_outlines
+    resources :first_semester_past_questions
     resources :second_semester_courses
     resources :second_semester_course_outlines
     resources :second_semester_library_books
     resources :second_semester_library_book_outlines
+    resources :second_semester_past_questions
+    resources :institution_ads
+    resources :faculty_ads
+    resources :institution_updates
+    resources :institution_notices
+    resources :faculty_updates
+    resources :faculty_notices
+    resources :department_updates
+    resources :department_notices
+
     resources :course_types
     resources :semesters
-    
+
   end
 
   devise_for :users, :controllers => {:registrations => "listings", :sessions => "login"}

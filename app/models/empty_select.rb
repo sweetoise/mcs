@@ -1,0 +1,3 @@
+class EmptySelect < ActiveRecord::Base
+  attr_accessible :name
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  signed_by: MyString
+  date: 2014-09-16 03:40:24
+  department_id: 1
+
+two:
+  title: MyString
+  content: MyText
+  signed_by: MyString
+  date: 2014-09-16 03:40:24
+  department_id: 1

@@ -1,0 +1,23 @@
+<h1>Listing empty_selects</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @empty_selects.each do |empty_select| %>
+  <tr>
+    <td><%= empty_select.name %></td>
+    <td><%= link_to 'Show', empty_select %></td>
+    <td><%= link_to 'Edit', edit_empty_select_path(empty_select) %></td>
+    <td><%= link_to 'Destroy', empty_select, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Empty select', new_empty_select_path %>

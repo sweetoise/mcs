@@ -1,0 +1,2 @@
+module FacultyUpdatesHelper
+end

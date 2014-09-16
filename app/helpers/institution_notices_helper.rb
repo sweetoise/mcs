@@ -1,0 +1,2 @@
+module InstitutionNoticesHelper
+end

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Term:</b>
+  <%= @copywrite_term.term %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @copywrite_term.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_copywrite_term_path(@copywrite_term) %> |
+<%= link_to 'Back', copywrite_terms_path %>

@@ -1,4 +1,8 @@
 class UpdatesController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :set_superadmin_and_updates_admin
+  
+  layout "administrator"
   # GET /updates
   # GET /updates.json
   def index
@@ -80,4 +84,13 @@ class UpdatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def set_superadmin_and_updates_admin
+    if current_user.has_role? :superadmin or current_user.has_role? :ads_updates_admin or current_user.has_role? :admin_user
+      else  redirect_to root_path
+    end
+  end
+
 end

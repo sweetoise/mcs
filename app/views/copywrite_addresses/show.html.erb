@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @copywrite_address.address %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @copywrite_address.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_copywrite_address_path(@copywrite_address) %> |
+<%= link_to 'Back', copywrite_addresses_path %>

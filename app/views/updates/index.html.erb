@@ -2,8 +2,8 @@
 
 <table>
   <tr>
+  	<th>Updates</th>
     <th>Description</th>
-    <th>Event</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @updates.each do |update| %>
   <tr>
-    <td><%= update.description %></td>
-    <td><%= update.event_id %></td>
+  	<td><%= update.event.name %></td>
+    <td><%= update.description %></td>  
     <td><%= link_to 'Show', update %></td>
     <td><%= link_to 'Edit', edit_update_path(update) %></td>
     <td><%= link_to 'Destroy', update, method: :delete, data: { confirm: 'Are you sure?' } %></td>

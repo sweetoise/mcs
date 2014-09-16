@@ -1,0 +1,2 @@
+module StateOfOriginsHelper
+end

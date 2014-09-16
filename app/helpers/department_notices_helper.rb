@@ -1,0 +1,2 @@
+module DepartmentNoticesHelper
+end

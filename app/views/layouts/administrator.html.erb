@@ -243,8 +243,226 @@
 								</tr>
 								<% else %>
 								<% end %>
+								<% if current_user.has_role? :past_questions_admin or current_user.has_role? :class_note_admin or current_user.has_role? :library_admin or current_user.has_role? :admin_user or current_user.has_role? :superadmin %>
+								<tr>
+									<td>
+										<div class="navigation_section">Past Questions Section</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'First semester past questions', administrator_first_semester_past_questions_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Second semester past questions', administrator_second_semester_past_questions_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<% if current_user.has_role? :ads_updates_admin or current_user.has_role? :admin_user or current_user.has_role? :superadmin %>
+								<tr>
+									<td>
+										<div class="navigation_section">Adverts</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Institution Ads', administrator_institution_ads_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Faculty Ads', administrator_faculty_ads_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="navigation_section">Updates</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Insitution Updates', administrator_institution_updates_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Institution Notices', administrator_institution_notices_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Faculty Updates', administrator_faculty_updates_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Faculty Notices', administrator_faculty_notices_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Department Updates', administrator_department_updates_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Department Notices', administrator_department_notices_path %>
+										</div>
+									</td>
+								</tr>
+								<% else %>
+								<% end %>
+								<% if current_user.has_role? :superadmin %>
+								<tr>
+									<td>
+										<div class="navigation_section">OTHERS</div>
+									</td>
+								</tr>
 								
-								
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Titles', titles_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Nationalities', nationalities_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'State of Origins', state_of_origins_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Privacy & Terms', privacy_terms_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Empty Selects', empty_selects_path %>
+										</div>
+									</td>
+								</tr>
+							    <tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Email Addresses', email_addresses_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Copywrite Terms', copywrite_terms_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Copywrite Addresses', copywrite_addresses_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Terms of Uses', terms_of_uses_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Table of Contents', table_of_contents_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'F.A.Q.s', faqs_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Events', events_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Updates', updates_path %>
+										</div>
+									</td>
+								</tr>
+								<% elsif current_user.has_role? :admin_user %>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'F.A.Q.s', faqs_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Events', events_path %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Updates', updates_path %>
+										</div>
+									</td>
+								</tr>
+								<% elsif current_user.has_role? :ads_updates_admin %>
+								<tr>
+									<td>
+										<div class="nav_items_links_center">
+											<%= link_to 'Updates', updates_path %>
+										</div>
+									</td>
+								</tr>
+								<% end %>					
 							</table>
 						  </div>
 						</td>

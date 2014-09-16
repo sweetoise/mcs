@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Introduction:</b>
+  <%= @terms_of_use.introduction %>
+</p>
+
+<p>
+  <b>Terms:</b>
+  <%= @terms_of_use.terms %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @terms_of_use.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_terms_of_use_path(@terms_of_use) %> |
+<%= link_to 'Back', terms_of_uses_path %>

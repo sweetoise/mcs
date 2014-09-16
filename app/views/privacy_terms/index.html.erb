@@ -1,0 +1,27 @@
+<h1>Listing privacy_terms</h1>
+
+<table>
+  <tr>
+    <th>Introduction</th>
+    <th>Policy</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @privacy_terms.each do |privacy_term| %>
+  <tr>
+    <td><%= privacy_term.introduction %></td>
+    <td><%= privacy_term.policy %></td>
+    <td><%= privacy_term.description %></td>
+    <td><%= link_to 'Show', privacy_term %></td>
+    <td><%= link_to 'Edit', edit_privacy_term_path(privacy_term) %></td>
+    <td><%= link_to 'Destroy', privacy_term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Privacy term', new_privacy_term_path %>

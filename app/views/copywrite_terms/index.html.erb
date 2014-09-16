@@ -1,0 +1,25 @@
+<h1>Listing copywrite_terms</h1>
+
+<table>
+  <tr>
+    <th>Term</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @copywrite_terms.each do |copywrite_term| %>
+  <tr>
+    <td><%= copywrite_term.term %></td>
+    <td><%= copywrite_term.content %></td>
+    <td><%= link_to 'Show', copywrite_term %></td>
+    <td><%= link_to 'Edit', edit_copywrite_term_path(copywrite_term) %></td>
+    <td><%= link_to 'Destroy', copywrite_term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Copywrite term', new_copywrite_term_path %>

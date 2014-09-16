@@ -1,0 +1,27 @@
+<h1>Listing terms_of_uses</h1>
+
+<table>
+  <tr>
+    <th>Introduction</th>
+    <th>Terms</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @terms_of_uses.each do |terms_of_use| %>
+  <tr>
+    <td><%= terms_of_use.introduction %></td>
+    <td><%= terms_of_use.terms %></td>
+    <td><%= terms_of_use.description %></td>
+    <td><%= link_to 'Show', terms_of_use %></td>
+    <td><%= link_to 'Edit', edit_terms_of_use_path(terms_of_use) %></td>
+    <td><%= link_to 'Destroy', terms_of_use, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Terms of use', new_terms_of_use_path %>
