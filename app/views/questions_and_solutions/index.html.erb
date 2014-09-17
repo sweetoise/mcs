@@ -1,2 +1,120 @@
-<h1>QuestionsAndSolutions#index</h1>
-<p>Find me in app/views/questions_and_solutions/index.html.erb</p>
+<div class="library-books-page-heading">Revised Questions and Answers</div>
+<div class="first-and-second-solution-banks-container">
+	<table>
+		<tr>
+			<td>
+				<div class="first-semester-solution-bank-container"> 
+                 <% current_user.level.first_semester_courses.each do |list_courses| %>
+                        <table border="0">
+                        	<tr>
+                        		<div class="solution-bank-code-title-container">
+                        		<td>
+                        			 <div class="solution-bank-course-codes">
+		                 		       <%= link_to list_courses.code, :controller => 'user_first_semester_course', :action => 'show', :id => list_courses %>
+		                 	         </div>
+                        		</td>
+                        	    <td>
+                        	      <%if list_courses.title.length > 45 %>
+                        	    	<div class="solution-bank-course-title">
+                        	    		<%= truncate list_courses.title, length: 45 %>
+                        	    	</div>	    	
+                        	      <% else %>
+                        	    	<div class="solution-bank-course-title">
+                        	    		<%= list_courses.title %>
+                        	    	</div>
+                        	      <% end %>
+                        	    </td>
+                        	    </div>
+                        	</tr>
+                        </table>
+                           
+		                 <% if list_courses.description.length > 180 %>      	    
+		                 	<div class="solution-bank-course-description">
+		                 		<%= truncate list_courses.description, length: 180 %>
+		                 	</div>
+		                 <% else %>
+		                 	<div class="solution-bank-course-description">
+		                 		<%= list_courses.description %>
+		                 	</div>
+		                 <% end %>
+		           <div class="solution-bank-solution-title-and-years">
+                   <table border="0">                  	 
+		              <tr>       
+		              	<td><div class="solution-bank-solution-years-title"><b style="color: #6e6e6e;">Solution Years ::</b></div></td>    
+	                     <% list_courses.first_semester_past_questions.order('year DESC').each do |past_questions_years| %>
+	             	     <td>
+	             	     	<div class="solution-bank-past-questions-years">
+		                      <%= link_to past_questions_years.year, :controller => 'past_questions_update_first_semester_course', :action => 'show', :id => past_questions_years  %> , &nbsp;
+		                   </div>
+	 	                 </td>
+	                     <% end %>
+	                     <td><div class="solution-bank-past-questions-continuation">...</div></td>
+	                  </tr>
+                   </table>
+                   </div>
+                  <% end %>
+    		</div>
+   
+			</td>
+			<td>
+				<div class="second-semester-solution-bank-container">
+    		        <% current_user.level.second_semester_courses.each do |list_courses| %>
+                        <table border="0">
+                        	<tr>
+                        		<div class="solution-bank-code-title-container">
+                        		<td>
+                        			 <div class="solution-bank-course-codes">
+		                 		       <%= link_to list_courses.code, :controller => 'user_second_semester_course', :action => 'show', :id => list_courses %>
+		                 	         </div>
+                        		</td>
+                        	    <td>
+                        	      <%if list_courses.title.length > 45 %>
+                        	    	<div class="solution-bank-course-title">
+                        	    		<%=  truncate list_courses.title, length: 45 %>
+                        	    	</div>	    	
+                        	      <% else %>
+                        	    	<div class="solution-bank-course-title">
+                        	    		<%=  list_courses.title %>
+                        	    	</div>
+                        	      <% end %>
+                        	    </td>
+                        	    </div>
+                        	</tr>
+                        </table>
+		                 <% if list_courses.description.length > 180 %>      	    
+		                 	<div class="solution-bank-course-description">
+		                 		<%= truncate list_courses.description, length: 180 %>
+		                 	</div>
+		                 <% else %>
+		                 	<div class="solution-bank-course-description">
+		                 		<%= list_courses.description %>
+		                 	</div>
+		                 <% end %>
+		           <div class="solution-bank-solution-title-and-years">
+                   <table border="0">                  	 
+		              <tr>       
+		              	<td><div class="solution-bank-solution-years-title"><b style="color: #6e6e6e;">Solution Years ::</b></div></td>    
+	                     <% list_courses.second_semester_past_questions.order('year DESC').each do |past_questions_years| %>
+	             	     <td>
+	             	     	<div class="solution-bank-past-questions-years">
+		                      <%= link_to past_questions_years.year, :controller => 'past_questions_update_second_semester_course', :action => 'show', :id => past_questions_years %> , &nbsp;
+		                    </div>
+	 	                 </td>            
+	                     <% end %>
+	                     <td><div class="solution-bank-past-questions-continuation">...</div></td>
+	                  </tr>
+                   </table>
+                   </div>
+                  <% end %>
+    		</div>
+			</td>
+		</tr>
+	</table>
+    		
+    		
+</div>
+
+
+
+
+

@@ -1,0 +1,102 @@
+<div class="subscription-nav-links"><b>Back to:</b>&nbsp;&nbsp;&nbsp;
+	<% if current_user.selected_course == 'first' %>
+	   <%= link_to current_user.first_semester_course.code, :controller => 'user_first_semester_course', :action => 'show', :id => current_user.first_semester_course %>
+	<% else current_user.selected_course == 'second' %>
+	   <%= link_to current_user.second_semester_course.code, :controller => 'user_second_semester_course', :action => 'show', :id => current_user.second_semester_course %>
+	<% end %>
+</div>
+
+<div class="subscription-page-heading">Expired Subscription</div>
+
+<div class="subscription_username_message">
+	<div class="subscription_username">Dear <%= current_user.name %> ,</div><br />
+    <div class="subscription_message">
+	    Please be informed that your current MCS subscription is expired and you can no longer view this page.
+        <p>You can follow this link 
+        	<% if current_user.pin_load_attempt >= 4 %>
+        	  <%= link_to 'Request Activation', '/payment_method/bank_transfer' %>
+        	<% else %>
+        	  <%= link_to 'Request Activation', '/payment_method/voucher' %>
+        	<% end %>
+           to renew your subscription.</p>
+    </div>
+</div>
+
+
+<div class="subscription-summary">
+	<div class="subscription-summary-title">
+		Subscription Summary:
+	</div>
+	<div class="subscription-summary-details">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><%= current_user.name %></td>
+			</tr>
+			<tr>
+				<td>Current Pin:</td>
+				<% if current_user.pin == nil %>
+				  <td><b>None</b></td>
+				<% else %>
+				  <td><%= current_user.pin %></td>
+				<% end %>
+			</tr>
+			<tr>
+				<td>Activated On:</td>
+				<% if current_user.expiration == nil %>
+				   <td><b>Never Activated</b></td>
+				<% else %>
+				   <td><%= current_user.expiration - 30.days %></td>
+			    <% end %>
+			</tr>
+			<tr>
+				<td>Expired At:</td>
+				<% if current_user.expiration == nil %>
+				   <td><b>No Record</b></td>
+				<% else %>
+				   <td><%= current_user.expiration %></td>
+				<% end %>
+			</tr>
+			<tr>
+				<td>Status:</td>
+				<td style="color: red; font-weight: bold;">Expired</td>
+			</tr>
+		</table>
+	</div>
+	<% if current_user.pin_load_attempt < 4 %>
+	  <div class="subscribe-please">
+		  Click to <%= link_to 'Activate', '/payment_method/voucher' %> a new plan
+	  </div>
+	<% elsif current_user.pin_load_attempt >= 4 %>
+	  <div class="subscribe-please">
+		  Click to <%= link_to 'Activate', '/payment_method/bank_transfer' %> a new plan
+	  </div>
+	<% end %>
+</div>
+<div class="return_back_navigation_expired">
+	<table>
+		<tr>
+			<td>
+				<% if current_user.selected_course == 'first' %>
+				<div class="course_return">
+					<%= link_to 'Course Home', :controller => 'user_first_semester_course', :action => 'show', :id => current_user.first_semester_course %>
+				</div>
+				<% elsif current_user.selected_course == 'second' %>
+				<div class="course_return">
+					<%= link_to 'Course Home', :controller => 'user_second_semester_course', :action => 'show', :id => current_user.second_semester_course %>
+				</div>
+				<% end %>
+			</td>
+			<td>
+				<div class="course_return">
+					<%= link_to 'Library', :controller => 'library', :action => 'books' %>
+				</div>
+			</td>
+			<td>
+				<div class="course_return">
+					<%= link_to 'Solution Bank', :controller => 'questions_and_solutions', :action => 'index' %>
+				</div>
+			</td>	
+		</tr>
+	</table>
+</div>

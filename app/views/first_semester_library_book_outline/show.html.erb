@@ -1,0 +1,109 @@
+   <table>
+   	   <tr>
+   	   	<td>
+   	   		<div class="library-outline-subscription-nav-links">
+	            <table border="0">
+		          <tr>
+			        <td>
+				     <div class="back-to-course">
+				        <%= link_to @library_outline.first_semester_library_book.first_semester_course.code, :controller => 'user_first_semester_course', :action => 'show', :id => @library_outline.first_semester_library_book.first_semester_course_id %>
+	                       &nbsp;&nbsp;&nbsp;&nbsp;<< &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to @library_outline.first_semester_library_book.name, :controller => 'user_first_semester_library_book', :action => 'show', :id => @library_outline.first_semester_library_book_id %>
+	                       &nbsp;&nbsp;&nbsp;&nbsp;<< &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to @library_outline.topic, :id => @library_outline %>
+			         </div> 
+			        </td>
+			        <td>
+				      <div class="back-to-library">Go to: &nbsp;&nbsp;
+					    <%= link_to 'Library', :controller => 'library', :action => 'books' %>
+				      </div>
+			        </td>
+		          </tr>
+	            </table>
+            </div>
+   	   	</td>
+   	   </tr>
+   	   <tr>
+   	   	<td>
+   	   		<div class="classnote_heading">
+	           <%= @library_outline.first_semester_library_book.name %> - Topics
+	        </div>
+   	   	</td>
+   	   </tr>
+   	   
+   	   <tr>
+		<td>
+			<% if @library_outlines.count < 6 %>
+			   <div class="show_first_semester_course_outline_details">
+			   	<% @library_outlines.each do |library_outline| %>
+   	               <div class="show_course_outline_topic"><%= link_to library_outline.topic, :controller => 'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+    	        <% end %>
+    	       </div>
+    	    <% elsif @library_outlines.count > 5 %>
+    	       <div class="show_first_semester_course_outline_details">
+    	       	<table>
+    	       		<tr>
+    	       			<td>
+    	       				<% @limit_5.take(5).each do |library_outline| %>
+                               <div class="show_course_outline_topic"><%= link_to library_outline.topic, :controller => 'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+                            <% end %>
+    	       			</td>
+    	       			<td>
+    	       			<% if @library_outlines.count > 5 %>
+    	       				<div class="left_spacing">
+    	       				<% @limit_6.take(5).each do |library_outline| %>
+                               <div class="show_course_outline_topic"><%= link_to library_outline.topic, :controller => 'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+                            <% end %>
+                            </div>
+                        <% else %>
+                        <% end %>
+    	       			</td>
+    	       			<td>
+    	       			<% if @library_outlines.count > 10 %>
+    	       				<div class="left_spacing">
+    	       				<% @limit_7.take(5).each do |library_outline| %>
+                               <div class="show_course_outline_topic"><%= link_to library_outline.topic, :controller => 'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+                            <% end %>
+                            </div>
+                        <% else %>
+                        <% end %>
+    	       			</td>
+    	       			<td>
+    	       			<% if @library_outlines.count > 15 %>
+    	       				<div class="left_spacing">
+    	       				<% @limit_8.take(5).each do |library_outline| %>
+                               <div class="show_course_outline_topic"><%= link_to library_outline.topic, :controller => 'first_semester_library_book_outline', :action => 'show', :id => library_outline %></div>
+                            <% end %>
+                            </div>
+                        <% else %>
+                        <% end %>
+    	       			</td>
+    	       			
+    	       		</tr>
+    	       	</table>
+               </div>
+            <% end %>
+		</td>
+	   </tr>
+   	   <tr>
+   	   	<td>
+   	   	   <div class="view_course_outline_topic">
+      	      <div style="width: 650px; padding-left: 70px;">
+      	 	     <%= @library_outline.topic %>
+      	      </div>  	
+           </div>
+   	   	</td>
+   	   	</tr>
+   	   	<tr>
+   	   	<td>
+   	   	   <% if @library_outline.topic.empty? %>
+   	   	      <div class="course_outline_url_view">
+              	Not Existing...
+              </div>
+           <% else %>
+              <div class="course_outline_url_view">
+      	         <iframe src="<%= @library_outline.book_url  %>" scrollbars="auto" style="min-width:883px; height:1105px;" scrollbars="no"; frameborder="0"></iframe>
+              </div>
+           <% end %>
+   	   	</td>
+   	   </tr>
+   </table>
+

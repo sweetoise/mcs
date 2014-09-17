@@ -1,0 +1,31 @@
+    <div class="classnote_heading">
+	     <%= current_user.first_semester_course.code %> - Class Note
+	</div>
+
+    <div class="show_first_semester_course_outline_details">
+    	<% @course_outlines.each do |course_outline|%>
+          <tr>
+            <td>
+              <div class="show_course_outline_topic"><%= link_to course_outline.topic, :controller => 'first_semester_course_outline', :action => 'show', :id => course_outline %></div>
+            </td>
+          </tr>
+       <% end %>
+
+    </div>
+    
+      <div class="view_course_outline_topic">
+      	 <div style="width: 650px; padding-left: 70px;">
+      	 	<%= @course_outline.topic %>
+      	 </div>
+         <div class="right_split_course_outline_topic" style="font-size: 11px; color: #4e4e4e; width: 120px; text-align: right; margin-left: 683px; padding-right: 10px; margin-top: -15px;">
+         	<%= link_to 'view video tutorial', :controller => 'course_video_tutorial', :action => 'show', :id => @course_outline %>
+         </div>
+      </div>
+      
+      <% if @course_outline.topic %>
+       <div class="course_outline_url_view">
+      	 <iframe src="<%= @course_outline.book_url  %>" scrollbars="auto" style="min-width:893px; height:1150px;" scrollbars="no"; frameborder="0"></iframe>
+       </div>
+      <% end %>
+    
+

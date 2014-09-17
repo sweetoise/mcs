@@ -2,6 +2,29 @@ Mcs::Application.routes.draw do
  
 
 
+  get "second_semester_course_video_tutorial/show"
+
+  get "first_semester_course_video_tutorial/show"
+
+  get "activated/index"
+
+  get "second_semester_questions_and_solutions/index"
+
+  get "second_semester_questions_and_solutions/show"
+
+  get "first_semester_questions_and_solutions/index"
+
+  get "first_semester_questions_and_solutions/show"
+
+  get "past_questions_update_second_semester_course/show"
+
+  get "past_questions_update_first_semester_course/show"
+
+  get "second_semester_library_book_outline/show"
+
+  get "second_update_semester_course/show"
+
+  get "second_semester_course_outline/show"
   match '/first-semester-course/library_book', to: 'user_first_semester_library_book#show'
   match '/second-semester-course/library_book', to: 'user_second_semester_library_book#show'
   match '/first-semester/course', to: 'user_first_semester_course#show'
@@ -13,7 +36,9 @@ Mcs::Application.routes.draw do
 
 
 
-
+  get "account/active_subscription"
+  get "account/expired_subscription"
+  get "first_semester_library_book_outline/show"
   get "scan/pin_attempt"
   get "payment_method/bank_transfer"
   get "contact_us/index"

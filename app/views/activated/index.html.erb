@@ -1,0 +1,63 @@
+<div class="activation_notice">
+	<b style="color: #b74900; font-size: 12px;">Welcome <%= current_user.name %>,</b><br />
+	<p style="margin-left: 27px; line-height: 19px;">Thank you for renewing your subscription. You now have access to view your subscribed courses. <br />Please note that your current subscription will expire in 30 days.</p>
+	   <p style="margin-left: 27px">After expiration, you will have to subscribe for access to your courses. </p>
+	   &nbsp; &nbsp; &nbsp; &nbsp;Please check below for your subscription summary.
+       <p style="margin-left: 27px">Thank you.</p>
+</div>
+<div class="subscription-summary">
+	<div class="subscription-summary-title">
+		Subscription Summary:
+	</div>
+	<div class="subscription-summary-details">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><%= current_user.name %></td>
+			</tr>
+			<tr>
+				<td>Current Pin:</td>
+				<td><%= current_user.pin %></td>
+			</tr>
+			<tr>
+				<td>Activated On:</td>
+				<td><%= current_user.expiration - 30.days %></td>
+			</tr>
+			<tr>
+				<td>Expired At:</td>
+				<td><%= current_user.expiration %></td>
+			</tr>
+			<tr>
+				<td>Status:</td>
+				<td style="color: green; font-weight: bold;">Active</td>
+			</tr>
+		</table>
+	</div>
+	
+</div>
+<div class="activated_return_back_navigation">
+	<table>
+		<tr>
+			<td>
+				<div class="course_return">
+					<% if current_user.second_semester_course == nil %>
+					  <%= link_to 'Course Home', :controller => 'user_first_semester_course', :action => 'show', :id => current_user.first_semester_course %>
+				    <% else current_user.first_semester_course == nil %>
+				      <%= link_to 'Course Home', :controller => 'user_second_semester_course', :action => 'show', :id => current_user.second_semester_course %>
+				    <% end %>
+				</div>
+			</td>
+			<td>
+				<div class="course_return">
+					<%= link_to 'Library', :controller => 'library', :action => 'books' %>
+				</div>
+			</td>
+			<td>
+				<div class="course_return">
+					<%= link_to 'Solution Bank', :controller => 'questions_and_solutions', :action => 'index' %>
+				</div>
+			</td>	
+		
+		</tr>
+	</table>
+</div>

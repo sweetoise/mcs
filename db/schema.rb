@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140916033507) do
+ActiveRecord::Schema.define(:version => 20140916230641) do
 
   create_table "copywrite_addresses", :force => true do |t|
     t.string   "address"
@@ -289,11 +289,11 @@ ActiveRecord::Schema.define(:version => 20140916033507) do
   end
 
   create_table "second_semester_library_books", :force => true do |t|
-    t.text     "author"
     t.string   "name"
-    t.integer  "second_semester_course_id"
-    t.text     "description"
+    t.text     "author"
     t.integer  "book_pages"
+    t.text     "description"
+    t.integer  "second_semester_course_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.string   "image_file_name"

@@ -1,2 +1,67 @@
-<h1>Library#books</h1>
-<p>Find me in app/views/library/books.html.erb</p>
+<div class="library-books-page-heading">
+	Library Books
+</div>
+
+<div class="courselist-and-librarybooks">
+	<table border="0">
+		<tr>
+			<td>
+			<div class="first_semester_library_books_half">
+				<% current_user.level.first_semester_library_books.each do |first_semester_library_books| %>
+				<div class="bookcover-and-description">
+					<div class="first_semester_library_book_image_small">
+						<%= image_tag first_semester_library_books.image.url(:small) %>
+					</div>
+
+					<div class="librarybooks-names-description">
+						<div class="librarybooks-names">
+							<b><%= link_to first_semester_library_books.name, :controller => 'update_semester_course', :action => 'show', :id => first_semester_library_books %></b>&nbsp;  by <b><%= first_semester_library_books.author %></b>
+							<br />
+							<%= first_semester_library_books.book_pages %> pages. Semester Course :: <%= first_semester_library_books.first_semester_course.code %>
+						</div>
+						<% if first_semester_library_books.description.length > 230 %>
+						<div class="librarybooks-description">
+							<%= truncate first_semester_library_books.description, length: 230 %>
+						</div>
+						<% else %>
+						<div class="librarybooks-description">
+							<%= first_semester_library_books.description %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<% end %>
+			</div>
+			</td>
+			<td>
+			<div class="first_second_semester_library_books_half">
+				<% current_user.level.second_semester_library_books.each do |second_semester_library_books| %>
+				<div class="bookcover-and-description">
+					<div class="first_semester_library_book_image_small">
+						<%= image_tag second_semester_library_books.image.url(:small) %>
+					</div>
+
+					<div class="librarybooks-names-description">
+						<div class="librarybooks-names">
+							<b><%= link_to second_semester_library_books.name, :controller => 'second_update_semester_course', :action => 'show', :id => second_semester_library_books %></b>&nbsp;  by <b><%= second_semester_library_books.author %></b>
+							<br />
+							<%= second_semester_library_books.book_pages %> pages. Semester Course :: <%= second_semester_library_books.second_semester_course.code %>
+						</div>
+						<% if second_semester_library_books.description.length > 230 %>
+						<div class="librarybooks-description">
+							<%= truncate second_semester_library_books.description, length: 230 %>
+						</div>
+						<% else %>
+						<div class="librarybooks-description">
+							<%= second_semester_library_books.description %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<% end %>
+			</div>
+		</tr>
+	</table>
+
+</div>
+

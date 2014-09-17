@@ -1,0 +1,46 @@
+<div class="subscription-nav-links">
+	<table border="0">
+		<tr>
+			<td>
+				<div class="solution_bank_back-to-course">
+					<%= link_to @second_semester_past_question.second_semester_course.code, :controller => 'user_second_semester_course', :action => 'show', :id => @second_semester_past_question.second_semester_course_id %>
+			    </div> 
+			</td>
+			<td>
+				<div class="solution_bank_back-to-library">Back to: &nbsp;&nbsp;
+					<%= link_to 'Solution bank', :controller => 'questions_and_solutions', :action => 'index' %>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="show-solution-year-heading">
+     <%= @second_semester_past_question.second_semester_course.code %> - Examination Solutions (<%= @second_semester_past_question.year %>)
+</div>
+
+    <div class="show_first_semester_course_outline_details_solution_year">
+    	<table>
+    		<tr>
+    			<td><b style="color: #3e3e3e; margin-left: 20px;">Solutions Years: </b></td>
+    		    <% current_user.second_semester_course.second_semester_past_questions.order('year DESC').each do |list_past_question_years| %>
+    			<td>
+    				<div class="show-solution-years-list">
+    			        <%= link_to list_past_question_years.year, :controller => 'past_questions_update_second_semester_course', :action => 'show', :id => list_past_question_years %>
+    	            </div>
+    			</td>
+    			<% end %>
+    		</tr>
+    	</table>
+    </div>
+       <div style="width: 650px; padding-left: 70px; margin-top: 40px; text-align: center; font-weight: bold; font-size: 14px; color: #4e4e4e; margin-bottom: 10px;">
+      	   <%= @second_semester_past_question.second_semester_course.title %>.
+       </div>
+       <div class="solution_bank_course_outline_url_view">
+      	 <iframe src="<%= @second_semester_past_question.solution_url  %>" scrollbars="auto" style="min-width:890px; height:1105px;" scrollbars="no"; frameborder="0"></iframe>
+       </div>
+
+
+
+
+
+
