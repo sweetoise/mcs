@@ -184,68 +184,39 @@ body {
   border-right: 2px solid #8e8e8e;
   padding: 2px;
 }
-.first_semester {
+.course_code_container {
+  margin-top: 15px;
+  width: 234px;
+  min-height: 0px;
+}
+.first_semester_course_codes {
+  width: 109px;
+  padding-left: 1px;
   border-right: 1px solid #ccc;
-  margin-top: 0px;
-  font-family:  verdana;
-  margin-left: 9px;
-  font-size: 10px;
-  color: #5e5e5e;
-  width: 112px;
-  min-height: 0px;
 }
-.second_semester {
-  border-left: 1px solid #ccc;
+.second_semester_course_codes {
+  width: 115px;
   float: right;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-top: 0px;
-  font-family:  verdana;
-  font-size: 10px;
-  color: #5e5e5e;
-  width: 114px;
-  min-height: 0px;
+  padding-left: 8px;
+  border-left: 1px solid #ccc;
 }
-
-.first_second_semester {
-  min-height: 30px;
-  margin-left: -10px;
-  margin-top: 10px;
-  
-}
-
-.first_semester_title_label {
-  width: 104px;
-  font-size: 10px;
-  margin-left: 3px;
-  color: black;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.second_semester_title_label {
-  width: 1115px;
-  font-size: 10px;
-  color: black;
-  margin-left: 2px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-
-
-.course_code {
+.first_merge_code_unit {
   height: 13px;
-  font-size: 10px;
-  text-decoration: underline;
-  font-weight: bold;
-  width: 55px;
+  width: 80px;
+  margin-left: 14px;
+  margin-top: 10px;
 }
-.course_code a {
-  text-decoration: none;
-  color: #5e5e5e;
+.second_merge_code_unit {
+  height: 13px;
+  width: 80px;
+  margin-left: 16px;
+  margin-top: 10px;
 }
-.course_code a:hover {
-  text-decoration: underline;
+.first_semester_spacing {
+  margin-top: 15px;
+}
+.second_semester_spacing {
+  margin-top: 15px;
 }
 .credit_load {
   float: right;
@@ -255,24 +226,38 @@ body {
   font-weight: bold;
   width: 15px;
 }
-
-.course_unit {
+.course_code {
   height: 13px;
-  margin-top: 10px;
-  margin-left: 12px;
-}
-.second_course_unit {
-  height: 13px;
-  margin-top: 10px;
-  margin-left: 14px;
-}
-.credit_unit {
-  height: 13px;
-  width: 20px;
-  margin-left: 8px;
-  margin-top: 10px;
+  font-size: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  width: 55px;
 }
 
+.first_semester_title_label {
+  width: 105px;
+  font-size: 10px;
+  margin-left: 3px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.second_semester_title_label {
+  width: 114px;
+  font-size: 10px;
+  color: black;
+  margin-left: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.course_code a {
+  text-decoration: none;
+  color: #5e5e5e;
+}
+.course_code a:hover {
+  text-decoration: underline;
+}
 
 .user_main_display {
   margin-left: -6px;
@@ -716,7 +701,7 @@ body {
 
 // COURSE CONTENT DIV STYLESHEET
 .course_content {
-  margin-top: 60px;
+  margin-top: 55px;
   color: #4e4e4e;
   width: 227px;
   margin-left: 1px;

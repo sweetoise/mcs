@@ -15,7 +15,7 @@
        	<tr>
        		<td>
        			<header class="header_navbar">	
-			  <div class="left_header_container">
+			<div class="left_header_container">
 			    <div class="header_logo">
 					<%= link_to(image_tag("../assets/user_mainpage_header_logo.jpg"), root_path )%>
 				</div>				
@@ -131,71 +131,36 @@
        			  		<td>
        			  			<div class="leftsider_navigation">
        			  				<table>
-       			  					<tr>
-       			  						<td>
-       			  							<div class="first_second_semester">
-                                   <div class="second_semester">
-                                   	<table border="0">
-                                   		<tr>
-                                           <td><div class="second_semester_title_label">Second-Semester</div></td>
-                                        </tr>
-                                    </table>
-                                    <table>
-                                        <tr>
-                                        	<% if current_user.level == nil%>
-                                        	<% else %>
-                                        	<td>
+       			  					<div class="course_code_container">
+       			  					   <div class="second_semester_course_codes">
+       			  						    <div class="second_semester_title_label">Second-Semester</div>
+       			  							<div class="second_semester_spacing">
+       			  							<% if current_user.level == nil %>
+                                            <% else %>
                                    				<% current_user.level.second_semester_courses.order('code', 'credit_load').each do |course| %>
-                              	                  <div class="second_course_unit">
-                                                    <div class="course_code"><%=link_to course.code, :controller => 'user_second_semester_course', :action => 'show', :id => course %></div>
-                              	                  </div>                         
+                              	                <div class="second_merge_code_unit">
+                              	                    <div class="credit_load"><%= course.credit_load %></div>
+                                                    <div class="course_code"><%=link_to course.code, :controller => 'user_second_semester_course', :action => 'show', :id => course %></div>                              	                    
+                              	                </div>                    
                                                 <% end %> 
-                                            </td>
-                                            <% end %>
+                                   		    <% end %>
+                                   		    </div>
+       			  						</div>
+       			  						<div class="first_semester_course_codes">
+       			  							<div class="first_semester_title_label">First-Semester</div>
+       			  							<div class="first_semester_spacing">
                                             <% if current_user.level == nil %>
                                             <% else %>
-                                            <td>
-                                   				<% current_user.level.second_semester_courses.order('code', 'credit_load').each do |course| %>
-                              	                  <div class="credit_unit">
-                              	                    <div class="credit_load"><%= course.credit_load %></div>
-                              	                  </div>                         
-                                                <% end %> 
-                                            </td>
-                                            <% end %>
-                                   		</tr>
-                                   	</table>
-                                   </div>
-                                   <div class="first_semester">
-                                   	<table border="0">
-                                   		<tr>
-                                           <td><div class="first_semester_title_label">First-Semester</div></td>
-                                        </tr>
-                                    </table>
-                                    <table>
-                                        <% if current_user.level == nil %>
-                                        <% else %>
-                                        <tr>
-                                        	<td>
                                    				<% current_user.level.first_semester_courses.order('code', 'credit_load').each do |course| %>
-                              	                  <div class="course_unit">
-                                                    <div class="course_code"><%=link_to course.code, :controller => 'user_first_semester_course', :action => 'show', :id => course %></div>
-                              	                  </div>                         
-                                                <% end %> 
-                                            </td>
-                                            <td>
-                                   				<% current_user.level.first_semester_courses.order('code', 'credit_load').each do |course| %>
-                              	                  <div class="credit_unit">
+                              	                <div class="first_merge_code_unit">
                               	                    <div class="credit_load"><%= course.credit_load %></div>
-                              	                  </div>                         
+                                                    <div class="course_code"><%=link_to course.code, :controller => 'user_first_semester_course', :action => 'show', :id => course %></div>                              	                    
+                              	                </div>                         
                                                 <% end %> 
-                                            </td>
-                                   		</tr>
-                                   		<% end %>
-                                   	</table>
-                                   </div>
-                                 </div>
-       			  						</td>
-       			  					</tr>
+                                   		    <% end %>
+                                   		    </div>
+       			  						</div>
+       			  					</div>
        			  					<tr>
        			  						<td>
        			  							<% if @first_semester_course %>             
