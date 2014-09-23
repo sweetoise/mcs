@@ -35,18 +35,18 @@
 							<table>
 								<tr>
 									<% if (current_user.pin_load_attempt < 1) %>
-									<td><b style="color: red;"><%= render 'layouts/messages' %></b></td>
+									<td><b style="color: red;"><div class="error_layout"><%= render 'layouts/messages' %></b></div></td>
 									<% if flash.empty? %>
 
 									<% else %>
 									<td> &nbsp;&nbsp;(<%= 4 - (current_user.pin_load_attempt)%> more attempts.) </td>
 									<% end %>
 									<% elsif current_user.pin_load_attempt > 0 and current_user.pin_load_attempt < 4 %>
-									<td><b style="color: red;"><%= render 'layouts/messages' %></b></td>
+									<td><b style="color: red;"><div class="error_layout"><%= render 'layouts/messages' %></b></div></td>
 									<% if flash.empty? %>
 									<td> &nbsp;&nbsp; <%= 4 - (current_user.pin_load_attempt)%> more attempt(s) </td>
 									<% else %>
-									<td> &nbsp;&nbsp;( <%= 4 - (current_user.pin_load_attempt)%> more attempts ) </td>
+									<td> &nbsp;&nbsp;(<%= 4 - (current_user.pin_load_attempt)%> more attempts) </td>
 									<% end %>
 
 									<% end %>

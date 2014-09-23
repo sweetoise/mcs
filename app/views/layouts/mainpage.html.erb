@@ -170,13 +170,36 @@
                 		<%= @first_semester_course.code %>
                 	</div>
                 	<div class="course_content_title">
-                		<b>TITLE:</b> <%= @first_semester_course.title %>
+                		<table>
+                			<tr>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_heading"><b>TITLE:</b> </div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_container">
+                									<%= @first_semester_course.title %>
+                								</div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                			</tr>
+                		</table>
                 	</div>
                 	<div class="course_content_description">
-                		<b>DESCRIPTION:</b> <%= @first_semester_course.description %>
+                		<b style="color: #4e4e4e; font-size: 10px;">DESCRIPTION:</b> &nbsp;<%= @first_semester_course.description %>
                 	</div>
                 	<div class="course_content_type">
-                		<b>TYPE:</b> <%= @first_semester_course.course_type.name %>
+                		<b style="color: #4e4e4e; font-size: 10px;">TYPE:</b> &nbsp;&nbsp; <%= @first_semester_course.course_type.name %>
                 	</div>   
                 	            
                    </div>
@@ -209,13 +232,36 @@
                 		<%= @second_semester_course.code %>
                 	</div>
                 	<div class="course_content_title">
-                		<b>TITLE:</b> <%= @second_semester_course.title %>
+                		<table>
+                			<tr>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_heading"><b>TITLE:</b> </div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_container">
+                									<%= @second_semester_course.title %>
+                								</div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                			</tr>
+                		</table>
                 	</div>
                 	<div class="course_content_description">
-                		<b>DESCRIPTION:</b> <%= @second_semester_course.description %>
+                		<b style="color: #4e4e4e; font-size: 10px;">DESCRIPTION:</b> &nbsp;<%= @second_semester_course.description %>
                 	</div>
                 	<div class="course_content_type">
-                		<b>TYPE:</b> <%= @second_semester_course.course_type.name %>
+                		<b style="color: #4e4e4e; font-size: 10px;">TYPE:</b> &nbsp;&nbsp;<%= @second_semester_course.course_type.name %>
                 	</div>   
                 	            
                    </div>
@@ -251,13 +297,36 @@
                 		<%= current_user.first_semester_course.code %>            		
                 	</div>
                 	<div class="course_content_title">
-                		<b>TITLE:</b> <%= current_user.first_semester_course.title %>
+                		<table>
+                			<tr>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_heading"><b>TITLE:</b> </div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_container">
+                									<%= current_user.first_semester_course.title %>
+                								</div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                			</tr>
+                		</table>
                 	</div>
                 	<div class="course_content_description">
-                		<b>DESCRIPTION:</b> <%= current_user.first_semester_course.description %>
+                		<b style="color: #4e4e4e; font-size: 10px;">DESCRIPTION:</b>&nbsp; <%= current_user.first_semester_course.description %>
                 	</div>
                 	<div class="course_content_type">
-                		<b>TYPE:</b> <%= current_user.first_semester_course.course_type.name %>
+                		<b style="color: #4e4e4e; font-size: 10px;">TYPE:</b> &nbsp;&nbsp; <%= current_user.first_semester_course.course_type.name %>
                 	</div> 
                 	<% end %>   
                    </div>
@@ -293,14 +362,37 @@
                 		<%= current_user.second_semester_course.code %>            		
                 	 </div>
                 	 <div class="course_content_title">
-                		<b>TITLE:</b> <%= current_user.second_semester_course.title %>
-                	 </div>
-                	 <div class="course_content_description">
-                		<b>DESCRIPTION:</b> <%= current_user.second_semester_course.description %>
-                	 </div>
-                	 <div class="course_content_type">
-                		<b>TYPE:</b> <%= current_user.second_semester_course.course_type.name %>
-                	 </div> 
+                		<table>
+                			<tr>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_heading"><b>TITLE:</b> </div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                				<td>
+                					<table>
+                						<tr>
+                							<td>
+                								<div class="titles_container">
+                									<%= current_user.second_semester_course.title %>
+                								</div>
+                							</td>
+                						</tr>
+                					</table>
+                				</td>
+                			</tr>
+                		</table>
+                	</div>
+                	<div class="course_content_description">
+                		<b style="color: #4e4e4e; font-size: 10px;">DESCRIPTION:</b>&nbsp; <%= current_user.second_semester_course.description %>
+                	</div>
+                	<div class="course_content_type">
+                		<b style="color: #4e4e4e; font-size: 10px;">TYPE:</b> &nbsp;&nbsp; <%= current_user.second_semester_course.course_type.name %>
+                	</div>
                 	<% end %>   
                    </div>
                    <div class="further_details">   
@@ -331,9 +423,6 @@
        			  						</td>
        			  					</tr>
        			  				</table>
-       			  				 
-                                 
-                
                </div>
                                   
        			  			</div>

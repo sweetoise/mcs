@@ -65,7 +65,7 @@ body {
   font-family: dokchampa, verdana, arial;
   font-size: 9px;
   margin-top: 4px;
-  margin-left: 12px;
+  margin-left: -8px;
 }
 .nav_table a{
   color: white;
@@ -257,6 +257,16 @@ body {
 }
 .course_code a:hover {
   text-decoration: underline;
+}
+.titles_heading {
+  font-size: 10px;
+  margin-left: -5px;
+  min-height: 39px;
+}
+.titles_container {
+  font-size: 9px;
+  color: #5e5e5e;
+  min-height: 37px;
 }
 
 .user_main_display {
@@ -735,9 +745,9 @@ body {
   text-transform: uppercase;
 }
 .course_content_description {
-  font-size: 11px;
+  font-size: 10px;
   line-height: 16px;
-  color: #4e4e4e;
+  color: #5e5e5e;
   margin-top: 7px;
 }
 .course_content_semester {
@@ -747,8 +757,8 @@ body {
   margin-top: 7px;
 }
 .course_content_type {
-  color: #4e4e4e;
-  font-size: 11px;
+  color: #5e5e5e;
+  font-size: 10px;
   border-bottom: 1px solid #ccc;
   text-transform: uppercase;
   margin-top: 7px;
@@ -1033,10 +1043,13 @@ body {
 }
 .first_semester_course_library_books_details2 {
   font-size: 10px;
-  min-width: 220px;
+  min-width: 260px;
   min-height: 85px;
   padding-left: 10px;
   margin-top: -20px;
+}
+.error_layout {
+  margin-left: 10px;
 }
 
 
@@ -1354,8 +1367,10 @@ body {
 }
 .activate_voucher_input {
   height: 18px;
+  font-size: 12px;
   width: 139px;
   padding-left: 3px;
+  padding-bottom: 2px;
   border: 1px solid #5e5e5e;
 }
 .enter_pin {
@@ -1483,7 +1498,7 @@ body {
   border-radius: 2px;
   height: 25px;
   text-decoration: none;
-  padding: 8px;
+  padding: 6px;
   background-color: #d4d4d4;
 }
 .prepaid-voucher-enable:hover {
@@ -1497,7 +1512,7 @@ body {
   border-radius: 2px;
   height: 25px;
   text-decoration: none;
-  padding: 8px;
+  padding: 6px;
   background-color: #626262;
 }
 
@@ -1513,7 +1528,7 @@ body {
   border-radius: 2px;
   height: 25px;
   text-decoration: none;
-  padding: 8px;
+  padding: 6px;
   background-color: #d4d4d4;
 }
 .bank-transfer-enable:hover {
@@ -1527,7 +1542,7 @@ body {
   border-radius: 2px;
   height: 25px;
   text-decoration: none;
-  padding: 8px;
+  padding: 6px;
   background-color: #626262;
 }
 .bank_transfer_get_prepaid_voucher {
