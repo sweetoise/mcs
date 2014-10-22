@@ -5,7 +5,7 @@
 		<title><%= content_for?(:title) ? yield(:title) : "MCS - Administrator::Homepage" %></title>
 		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
 		<%= stylesheet_link_tag "administrator", :media => "all" %>
-		<%= javascript_include_tag "administrator" %>
+		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<%= yield(:head) %>
 	</head>

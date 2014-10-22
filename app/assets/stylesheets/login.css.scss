@@ -1,3 +1,433 @@
-// Place all the styles related to the login controller here.
+// Place all the styles related to the ContactUs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// GENERAL LISTINGS STYLING FOR BODY LAYOUT
+body {
+   margin-left: auto;
+   margin-right: auto;
+   background-image: url("../assets/background_grains.jpg");
+   background-repeat: repeat-x;
+   color: #333;
+   font-family: verdana, arial, helvetica, sans-serif;
+   font-size: 13px;
+}
+.pagecontent {
+  width: 950px;
+  height: 990px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8px;
+  background-image: url('../images/listing_pagebackground.jpg');
+}
+.header_navbar {
+  width: 950px;
+  height: 140px;
+  background-image: url('../assets/signin_background_header.jpg');
+}
+.sitelogo {
+  width: 128px;
+  height: 120px;
+  margin-left: 5px;
+}
+.right_header_container {
+  width: 385px;
+  height: 120px;
+  float: right;
+}
+.loginhere_register {
+  margin-top: 10px;
+  float: right;
+  width: 257px;
+  height: 50px;
+}
+.loginhere_register_title {
+  margin-left: 30px;
+  margin-top: 21px;
+  float: left;
+  width: 125px;
+  color: white;
+  font-weight: bold;
+}
+.login_here {
+  font-family: dokchampa, arial , verdana;
+  font-size: 12px;
+  background-image: url('../assets/login_here.jpg');
+  background-repeat: no-repeat;
+  padding-top: 23px;
+  padding-left: 50px;
+  width: 90px;
+  height: 25px;
+  float: left;
+  font-weight: bold;
+}
+.login_here a {
+  color: white;
+}
+.login_here a:hover {
+  color: #EE811E;
+}
+.register {
+  font-weight: bold;
+  font-family: dokchampa, arial, verdana;
+  font-size: 13px;
+  text-align: right;
+  float: right;
+  width: 90px;
+  height: 30px;
+  padding-right: 10px;
+  padding-top: 16px;
+}
+.register a {
+  text-decoration: underline;
+  color: #ee811e;
+}
+.register a:hover {
+  color: #EE811E;
+  text-decoration: underline;
+}
+.left_header_container {
+  width: 550px;
+  height: 140px;
+  float: left;
+}
+.header_navigation {
+  height: 30px;
+  width: 400px;
+  float: right;
+  margin-top: -76px;
+  font-family: dokchampa;
+}
+.nav_table a{
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.nav_table a:hover{
+  color: #EE811E;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.home {
+  padding-right: 15px;
+}
+.updates {
+  padding-right: 15px;
+}
+.contact a {
+  padding-right: 15px;
+}
+
+.faq {
+  padding-right: 15px;
+}
+
+
+
+/* GENERAL FOOTER WEB LAYOUT */
+
+
+footer {
+  color: white;
+  font-size: 15px;
+  font-family: dokchampa verdana arial;
+}
+
+footer {
+  color: white;
+  padding-top: 15px;
+  height: 125px;
+  width: 950px;
+}
+footer a {
+color: white;
+text-decoration: none;
+}
+footer a:hover {
+color: #222;
+}
+
+footer ul {
+  margin-top: -15px;
+  list-style: none;
+}
+footer ul li {
+float: left;
+margin-left: 10px;
+}
+.footer_leftsider {
+  width: 400px;
+  height: 90px;
+  float: left;
+}
+.footer_rightsider {
+  width: 500px;
+  height: 90px;
+  float: right;
+}
+.footer_rightsider a {
+  padding-top: -10px;
+}
+.footer_sitelogo {
+  margin-top: 4px;
+  margin-left: 1px;
+  width: 105px;
+  height: 33px;
+}
+.copywrite_container {
+  margin-top: 10px;
+  width: 380px;
+  height: 35px;
+  font-size: 10px;
+  font-family: arial;
+}
+.footer_rightsider_top_navigation {
+  font-family: dokchampa, arial, verdana;
+  font-size: 12px;
+  padding-top: 5px;
+  width: 440px;
+  height: 40px;
+  padding-left: 110px;
+}
+.footer_leftsider_bottom_navigation {
+  margin-top: -10px;
+  margin-left: -4px;
+  width: 350px;
+  font-size: 11px;
+  font-family: dokchampa, arial, verdana;
+  height: 30px;
+  font-weight: bold;
+}
+.nav_table_footer_rightsider_top_navigation a{
+  color: white;
+  text-decoration: none;
+}
+.nav_table_footer_rightsider_top_navigation a:hover{
+  color: #EE811E;
+  text-decoration: underline;
+}
+.nav_table_footer_leftsider_bottom_navigation a{
+  color: white;
+  text-decoration: underline;
+}
+.nav_table_footer_leftsider_bottom_navigation a:hover{
+  color: #EE811E; 
+  text-decoration: underline;
+}
+.advertise {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.get_help {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.feedback {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.about {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.copywrite_info {
+  padding-right: 5px;
+}
+.privacy_policy {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.terms_of_use {
+  padding-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//LOGIN.HTML CSS
+
+.login_pagecontent {
+  margin-top: 25px;
+  height: 680px;
+}
+
+.loginform_container  {
+  width: 750px;
+  height: 450px;
+  border: 1px solid #adadad;
+  margin-left: 80px;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+.loginform_title {
+  border-bottom: 1px solid #adadad;
+  width: 700px;
+  height: 30px;
+  color: #4e4e4e;
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 20px;
+  margin-left: 25px;
+}
+.loginform_error {
+  width: 700px;
+  height: 110px;
+  border: 1px solid red;
+  background-color: #FFF1E8;
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
+.signinform_table {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+.username_email_title {
+  font-weight: bold;
+  font-size: 12px;
+  color: #6e6e6e;
+  text-align: right;
+}
+.password_title {
+  font-weight: bold;
+  font-size: 12px;
+  color: #6e6e6e;
+}
+.email_input {
+  margin-left: 5px;
+  width: 200px;
+  height: 22px;
+  padding-left: 5px;
+  border: 2px solid #7e7e7e;
+}
+.password_input {
+  width: 200px;
+  margin-left: 5px;
+  height: 22px;
+  padding-left: 5px;
+  border: 2px solid #7e7e7e;
+}
+.remember_me {
+  padding-left: 6px;
+}
+.remember_me_text {
+  float: right;
+  font-weight: bold;
+  padding-top: 3px;
+  padding-right: 173px;
+  font-size: 11px;
+}
+.signin_signup {
+  padding-left: 9px;
+}
+.signup_container {
+  float: right;
+  padding-right: 40px;
+  margin-top: 6px;
+  margin-left: 10px;
+}
+.signin_button {
+  float: left;
+  width: 60px;
+  height: 27px;
+  background-image: url('../assets/signin_login_button.jpg');
+  border: none;
+  cursor: pointer;
+}
+.signin_button:hover{
+  float: left;
+  width: 60px;
+  height: 27px;
+  background-image: url('../images/signin_login_button_hover.jpg');
+  border: none;
+  cursor: pointer;
+}
+.signin_password {
+  font-size: 11px;
+  height: 18px;
+  padding-left: 9px;
+}
+.signin_password a{
+  color: #b74900;
+  text-decoration: none;
+}
+.signin_password a:hover {
+  text-decoration: underline;
+}
+.signinform_signup_title {
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+.signup_container a {
+  text-decoration: none;
+  color: #b74900;
+}
+.signup_container a:hover {
+  text-decoration: underline;
+}
+.shared_links {
+  float: right;
+  margin-top: 15px;
+  line-height: 18px;
+  margin-right: 30px;
+  font-size: 11px;
+}
+.shared_links a{
+  text-decoration: underline;
+  color: #b74900;
+}
+.shared_links a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

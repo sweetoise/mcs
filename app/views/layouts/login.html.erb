@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><%= content_for?(:title) ? yield(:title) : "MCS :: Login Error" %></title>
+		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
+		<%= stylesheet_link_tag "login", :media => "all" %>
+		<%= javascript_include_tag "login" %>
+		<%= csrf_meta_tags %>
+		<%= yield(:head) %>
+		
+	</head>
+	<body>
+		<div class="pagecontent">
+			<header class="header_navbar">
+				<div class="left_header_container">
+					<div class="sitelogo">
+						<%= link_to(image_tag("../images/sitelogo.jpg"), root_path )%>
+					</div>
+					<div class="header_navigation">
+							<table class="nav_table" border="0">
+								<tr>
+									<td class="home"><%= link_to 'Home', root_path %></td>
+									<td class="updates"><%= link_to 'Updates', '/recent_updates/index' %></td>
+									<td class="faq"><%= link_to 'Get Help', '/get_help/index' %></td>
+									<td class="contact"><%= link_to 'Contact Us', '/contact_us/index' %></td>
+									<td class="forum"><%= link_to 'Forum', '#' %></td>
+								</tr>
+							</table>
+					</div>
+				</div>
+				<div class="right_header_container">
+					<div class="loginhere_register">						
+						<div class="register"><%= link_to 'Signup NOW', root_path %></div>
+						<div class="loginhere_register_title">My Course Study</div>
+					</div>
+				</div>
+
+			</header>
+			<div id="main" role="main">
+				<div class="container">
+					<div class="content">
+						<div class="row">
+							<div class="span">								
+								<%= yield %>
+							</div>
+						</div>
+						<footer class="footer">
+							<div class="footer_leftsider">
+								<div class="footer_sitelogo">
+									<%= link_to(image_tag("../images/footer_sitelogo.jpg"), root_path )%>
+								</div>
+								<div class="copywrite_container">
+									Copyright © 2013 - 2014 MyCourseStudy - Your higher institution courses reading archive. Get the latest institution course outline, for your reading pleasure.
+								</div>
+								<div class="footer_leftsider_bottom_navigation">
+							    <table class="nav_table_footer_leftsider_bottom_navigation" border="0">
+								  <tr>
+									<td class="copywrite_info"><%= link_to 'Copywrite Information', '/copywrite_information/index' %></td>
+									<td class="privacy_policy"><%= link_to 'Privacy Policy', '/privacy_policy/index' %></td>
+									<td class="terms_of_use"><%= link_to 'Terms Of Use', '/terms_and_conditions/index' %></td>
+								  </tr>
+							    </table>
+					          </div>
+							</div>
+							<div class="footer_rightsider">
+							  <div class="footer_rightsider_top_navigation">
+							    <table class="nav_table_footer_rightsider_top_navigation" border="0">
+								  <tr>
+									<td class="advertise"><%= link_to 'ADVERTISE', '#' %></td>
+									<td class="get_help"><%= link_to 'GET HELP', '/get_help/index' %></td>
+									<td class="feedback"><%= link_to 'SEND US FEEDBACK', '#' %></td>
+									<td class="about"><%= link_to 'ABOUT US', '#' %></td>
+								  </tr>
+							    </table>
+					          </div>          
+							</div>						
+						</footer>
+					</div>
+				</div>
+				<!--! end of .container -->
+			</div>
+			<!--! end of #main -->
+		</div>
+	</body>
+</html>
