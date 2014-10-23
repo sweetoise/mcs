@@ -6,7 +6,7 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   height: 100%;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 100%;
   position: fixed;
 }
 .mobile_app_pagecontent {
@@ -22,15 +22,15 @@ body {
 }
 .mobile_header_table {
   width: 100%;
+  margin-top: 0.4em;
   height: 10%;
 }
 .mobile_site_logo_table {
   height: 5%;
-  margin-left: -0.6%;
 }
 .mcs_tag {
   color: #b74900;
-  font-size: 16px;
+  font-size: 0.9em;
   font-family: franklin gothic demi;
   font-weight: bold;
 }
@@ -42,16 +42,16 @@ body {
 }
 .mobile_tag {
   font-family: verdana;
-  font-size: 105%;
+  font-size: 0.85em;
   margin-left: 10%;
 }
 .goal_tag {
   font-family: verdana;
-  font-size: 52%;
+  font-size: 0.4em;
   text-transform: uppercase;
   color: #4e4e4e;
   font-weight: bold;
-  margin-top: -3%;
+  margin-top: -2%;
   margin-left: 0.7%;
   width: 150%;
 }
@@ -61,7 +61,6 @@ body {
   text-align: right;
   padding-bottom: 0.5%;
   float: right;
-  margin-top: 7px;
 }
 .register {
   margin-right: 11%;
