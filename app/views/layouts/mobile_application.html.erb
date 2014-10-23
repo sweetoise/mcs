@@ -13,10 +13,12 @@
 	<body>
 		<div class="mobile_app_pagecontent">
 			<header class="header_navbar">
-				<table class="mobile_header_table">
-					<tr>
-						<td class="mobile_site_logo_table">
-							<table>
+				<div class="mobile_header_table">
+					<div class="mobile_site_signup">
+						<%= link_to 'SIGN UP',  new_user_registration_path, :method => 'delete', :class => 'register' %>
+					</div>
+					<div class="mobile_site_logo_table">
+						<table>
 								<tr>
 									<td>
 										<div class="mcs_tag">My Course Study</div></td><td><div class="separator_tag">|</div></td><td><div class="mobile_tag">Mobile</div>
@@ -30,14 +32,56 @@
 									</td>
 								</tr>
 							</table>
-						</td>
-						<td class="mobile_site_signup">
-						    <%= link_to 'SIGN UP',  new_user_registration_path, :method => 'delete', :class => 'register' %>
-						</td>
-					</tr>
-				</table>
+					</div>
+					
+				</div>
 			</header>
-			
+			<div id="main" role="main">
+				<div class="container">
+					<div class="content">
+						<div class="row">
+							<div class="span">
+								<%= yield %>
+							</div>
+						</div>
+						<footer class="footer">
+							<div class="footer_leftsider">
+								<div class="footer_sitelogo">
+									<%= link_to(image_tag("../assets/footer_sitelogo.jpg"), root_path )%>
+								</div>
+								<div class="copywrite_container">
+									Copyright © 2013 - 2014 MyCourseStudy - Your higher institution courses reading archive. Get the latest institution course outline, for your reading pleasure.
+								</div>
+								<div class="footer_leftsider_bottom_navigation">
+							    <table class="nav_table_footer_leftsider_bottom_navigation" border="0">
+								  <tr>
+									<td class="copywrite_info"><%= link_to 'Copywrite Information', '/copywrite_information/index' %></td>
+									<td class="privacy_policy"><%= link_to 'Privacy Policy', '/privacy_policy/index' %></td>
+									<td class="terms_of_use"><%= link_to 'Terms Of Use', '/terms_and_conditions/index' %></td>
+								  </tr>
+							    </table>
+					          </div>
+							</div>
+							<div class="footer_rightsider">
+							  <div class="footer_rightsider_top_navigation">
+							    <table class="nav_table_footer_rightsider_top_navigation" border="0">
+								  <tr>
+									<td class="advertise"><%= link_to 'ADVERTISE', '#' %></td>
+									<td>|</td>
+									<td class="get_help"><%= link_to 'GET HELP', '/get_help/index' %></td>
+									<td>|</td>
+									<td class="feedback"><%= link_to 'SEND US FEEDBACK', '#' %></td>
+									<td>|</td>
+									<td class="about"><%= link_to 'ABOUT US', '#' %></td>
+								  </tr>
+							    </table>
+					          </div>          
+							</div>						
+						</footer>
+					</div>
+				</div>
+				<!--! end of .container -->
+			</div>
 			<!--! end of #main -->
 		</div>
 	</body>

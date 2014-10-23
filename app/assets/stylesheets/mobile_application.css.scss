@@ -25,13 +25,12 @@ body {
   height: 10%;
 }
 .mobile_site_logo_table {
-  width: 80%;
   height: 5%;
   margin-left: -0.6%;
 }
 .mcs_tag {
   color: #b74900;
-  font-size: 105%;
+  font-size: 16px;
   font-family: franklin gothic demi;
   font-weight: bold;
 }
@@ -61,6 +60,8 @@ body {
   height: 5%;
   text-align: right;
   padding-bottom: 0.5%;
+  float: right;
+  margin-top: 7px;
 }
 .register {
   margin-right: 11%;
