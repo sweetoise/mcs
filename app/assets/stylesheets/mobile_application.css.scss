@@ -1,14 +1,37 @@
 // GENERAL USER MOBILE_APPLICATION_LAYOUT
 
-body {
+
+html { font-size: 62.5%; }
+
+
+body { 
+  font-size: 1em;
   background-image: url('../assets/mobile_app_background.jpg');
   background-repeat: repeat-x;
   font-family: verdana, arial, helvetica, sans-serif;
   height: 100%;
   width: 100%;
-  font-size: 100%;
   position: fixed;
+  }
+
+@media (max-width: 300px) {
+    html { font-size: 70%; }
 }
+
+@media (min-width: 500px) {
+    html { font-size: 80%; }
+}
+
+@media (min-width: 700px) {
+    html { font-size: 120%; }
+}
+
+@media (min-width: 1200px) {
+    html { font-size: 200%; }
+}
+
+
+
 .mobile_app_pagecontent {
   width: 100%;
   margin-left: -0.5%;
