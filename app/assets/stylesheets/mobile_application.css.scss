@@ -11,8 +11,26 @@ body {
   position: fixed;
   }
 
+.header_navbar {
+  width: 100%;
+  height: 10%;
+}
+.mobile_header_table {
+  width: 100%;
+  margin-top: 0.4em;
+  height: 10%;
+}
+.mobile_site_logo_table {
+  height: 5%;
+  width: 70%;
+}
 
-@media (min-width: 120px) {
+
+
+
+
+
+@media (max-width: 140px) {
   html {
     font-size: 70%;
   }
@@ -87,34 +105,99 @@ body {
 }
 }
 
-@media (min-width: 500px) {
-    html { font-size: 80%; }
+// FOR SCREENS WIDER THAN 120PX;
+
+
+@media (min-width: 150px) {
+  html {
+    font-size: 70%;
+  }
+  .register {
+  margin-right: 2%;
+  font-size: 0.6em;
+  border: 2px solid #3e3e3e;
+  border-radius: 2px;
+  padding: 1px;
+  text-align: center;
+  color: #e9e9e9;
+  background-color: #b74900;
+  text-decoration: none;
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+  .register a {
+  text-decoration: none;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #F9F9F9;
+}
+  .register a:hover {
+  background-color: #d4d4d4;
+  color: #ee811e;
 }
 
-@media (min-width: 700px) {
-    html { font-size: 120%; }
-}
-
-@media (min-width: 1200px) {
-    html { font-size: 200%; }
-}
-
-
-
-
-.header_navbar {
+  .mobile_app_pagecontent {
   width: 100%;
-  height: 10%;
+  margin-left: -2%;
+  margin-top: 0.1%;
+  min-height: 48%;
+  padding-bottom: 10%;
 }
-.mobile_header_table {
-  width: 100%;
-  margin-top: 0.4em;
-  height: 10%;
-}
-.mobile_site_logo_table {
+  .mobile_site_signup {
+  margin-top: 2px;
+  margin-right: 8px;
+  width: 20%;
   height: 5%;
-  width: 70%;
+  text-align: right;
+  padding-bottom: 0.5%;
+  float: right;
 }
+.mcs_tag {
+  color: #b74900;
+  font-size: 0.95em;
+  font-family: franklin gothic demi;
+  font-weight: bold;
+}
+
+.separator_tag {
+  margin-left: 40%;
+  margin-top: -20%;
+  color: #ccc;
+}
+.mobile_tag {
+  font-family: verdana;
+  font-size: 0.8em;
+  margin-left: 10%;
+}
+.goal_tag {
+  font-family: verdana;
+  font-size: 0.45em;
+  text-transform: uppercase;
+  color: #4e4e4e;
+  font-weight: bold;
+  margin-top: -4%;
+  margin-left: 0.7%;
+  width: 150%;
+}
+}
+
+
+// FOR WIDER SCREENS
+
+
+@media (min-width: 1366px){
+  html {
+    font-size: 90%;
+  }
+}
+
+
+
+
+
+
 
 
 
