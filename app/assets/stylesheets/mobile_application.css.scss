@@ -2,7 +2,6 @@
 
 
 body { 
-  font-size: 1em;
   background-image: url('../assets/mobile_app_background.jpg');
   background-repeat: repeat-x;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -32,70 +31,11 @@ body {
 
 @media (max-width: 140px) {
   html {
-    font-size: 20%;
+    font-size: 5%;
   }
-  .register {
-  margin-right: 2%;
-  font-size: 0.6em;
-  border: 2px solid #3e3e3e;
-  border-radius: 2px;
-  padding: 1px;
-  text-align: center;
-  color: #e9e9e9;
-  background-color: #b74900;
-  text-decoration: none;
-  font-weight: bold;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-  .register a {
-  text-decoration: none;
-  font-weight: bold;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  color: #F9F9F9;
-}
-  .register a:hover {
-  background-color: #d4d4d4;
-  color: #ee811e;
-}
 
-  .mobile_app_pagecontent {
-  width: 100%;
-  margin-left: -2%;
-  margin-top: 0.1%;
-  min-height: 48%;
-  padding-bottom: 10%;
-}
-  .mobile_site_signup {
-  margin-top: 2px;
-  margin-right: 8px;
-  width: 20%;
-  height: 5%;
-  text-align: right;
-  padding-bottom: 0.5%;
-  float: right;
-}
-.mcs_tag {
-  color: #b74900;
-  font-size: 0.95em;
-  font-family: franklin gothic demi;
-  font-weight: bold;
-}
-
-.separator_tag {
-  margin-left: 40%;
-  margin-top: -20%;
-  color: #ccc;
-}
-.mobile_tag {
-  font-family: verdana;
-  font-size: 0.8em;
-  margin-left: 10%;
-}
 .goal_tag {
   font-family: verdana;
-  font-size: 1px;
   text-transform: uppercase;
   color: #4e4e4e;
   font-weight: bold;
